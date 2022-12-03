@@ -57,6 +57,7 @@ class Pelicula
         $id_categoria = $_POST['id_categoria'];
         $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
 
+        //TODO ejemplo 
         $consulta = "SELECT * FROM T_Pelicula ;";
         $resultado = mysqli_query($conexion, $consulta);
         if (!$resultado) {
