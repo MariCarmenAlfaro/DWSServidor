@@ -16,8 +16,8 @@
    
     <div class="contenedorLista">
     <ul class="listaCategorias">
-        <li class="generos"> <a href="peliculas.php?genero=terror">Terror</a> </li>
-        <li class="generos"> <a href="peliculas.php?genero=barbie">Infantil</a> </li>
+        <li class="generos"> <a href="peliculas.php?genero=2">Terror</a> </li>
+        <li class="generos"> <a href="peliculas.php?genero=1">Infantil</a> </li>
     </ul>
     </div>
 </body>

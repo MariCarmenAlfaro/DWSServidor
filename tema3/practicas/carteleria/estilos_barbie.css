@@ -48,7 +48,9 @@
 .imagen {
     width: 20%;
     overflow: auto;
-    display: block;
+   display: inline;
+    margin: 0px 10px;
+   
 }
 
 
@@ -79,6 +81,8 @@
 
 .titulo {
     font-weight: bold;
+    font-size: larger;
+    margin: 10px;
 }
 
 .tituloFicha {

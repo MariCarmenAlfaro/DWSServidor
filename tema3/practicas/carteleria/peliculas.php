@@ -10,10 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Sevillana&display=swap" rel="stylesheet">
 
     <?php
-    if ($_GET["genero"] === "terror") {
+    if ($_GET["genero"] === "2") {
         echo  "<link rel=stylesheet href=estilos_terror.css>";
-    } elseif ($_GET["genero"] === "barbie") {
+    } elseif ($_GET["genero"] === "1") {
         echo "<link rel=stylesheet href=estilos_barbie.css>";
+    }else{
+        header('categorias.php');
     }
     ?>
 
@@ -36,11 +38,13 @@
             </ul>
         </div>
         <div class="cuerpo">
-            <?php
-            require('backPeli.php');
-           
-            $peli->contenidoPeli();
 
+            <?php
+
+            require('backPeli.php');
+
+           // contenidoPeli();
+    
             ?>
 
 

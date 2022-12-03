@@ -50,6 +50,7 @@ padding: 5px;
     width: 20%;
     overflow: auto;
     display: block;
+    margin: 0px 10px;
 }
 
 
@@ -83,6 +84,8 @@ padding: 5px;
 
 .titulo {
     font-weight: bold;
+    font-size: larger;
+    margin: 10px;
 
 }
 
