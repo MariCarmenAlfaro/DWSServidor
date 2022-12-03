@@ -1,0 +1,54 @@
+<script>
+    //Tooltip botón finalizar partido
+    $(document).ready(function () {
+        $('[data-toggle="tooltipFinalizarPartido"]').tooltip();
+    });
+
+    //Tooltip actualizar
+    $(document).ready(function () {
+        $('[data-toggle="tooltipActualizar"]').tooltip();
+    });
+
+    //Tooltip botón puntos
+    $(document).ready(function () {
+        $('[data-toggle="tooltipPuntos"]').tooltip();
+    });
+
+
+    function iniciar() {
+        localStorage.setItem('initialized', 'true');
+        disable();
+    }
+
+    function finalizar() {
+        localStorage.setItem('initialized', 'false');
+        disable();
+    }
+
+    function disable() {
+        setTimeout(() => {
+            if (localStorage.getItem('initialized') === 'true') {
+
+
+
+                document.querySelector('#puntosPartido').removeAttribute('disabled');
+                document.querySelector('#añadirComentario').removeAttribute('disabled');
+                document.querySelector('#partidoErroneo').removeAttribute('disabled');
+                document.querySelector('#editarGoles').removeAttribute('disabled');
+                document.querySelector('#iniciarPartido').setAttribute('disabled', 'true');
+
+            } else {
+
+
+                document.querySelector('#puntosPartido').setAttribute('disabled', 'true');
+                document.querySelector('#añadirComentario').setAttribute('disabled', 'true');
+                document.querySelector('#partidoErroneo').setAttribute('disabled', 'true');
+                document.querySelector('#editarGoles').setAttribute('disabled', 'true');
+                document.querySelector('#iniciarPartido').removeAttribute('disabled');
+            }
+        }, 2000);
+
+
+    }
+    disable();
+</script>

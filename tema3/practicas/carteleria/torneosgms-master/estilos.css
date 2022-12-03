@@ -1,0 +1,69 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+ table .textoCentrado{
+    text-align: center;
+    
+}
+
+.textoCentrado{
+    text-align: center;
+    
+}
+
+/* Make the image fully responsive */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+h2{
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.float-right{
+    float:  right;
+}
+
+.titulo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.descripcion{
+    margin-bottom: 15px;
+}
+
+label{
+    width: 100px;
+}
+
+.labelNormal{
+    width: auto !important;
+}
+/* body{
+    background-image: url("img/fondo.jpg");
+   } */
+
+
+   /*login*/ 
+
+   .jumbotron{
+    background-color: #eff3f4 !important;
+    
+  }
+
+  .footerLogin {
+   
+    position: absolute;
+    bottom:0;
+    width: 30% !important;
+  }
+

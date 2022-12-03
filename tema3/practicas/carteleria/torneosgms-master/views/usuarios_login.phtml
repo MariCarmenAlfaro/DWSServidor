@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <?php include 'head_view.html';?>
+</head>
+
+<body>
+
+  <?php include 'menu_view.phtml';?>
+
+
+  <div class="container">
+
+    <h2>Login</h2>
+
+
+    <div class="row">
+      <div class="col-6">
+
+        <form action="index.php?controller=usuarios&action=login" method="post">
+          <div class="form-group text-white">
+            <label for="usuario">Usuario:</label>
+            <input type="text" class="form-control" id="usuario" placeholder="Introducir usuario" name="usuario">
+          </div>
+          <div class="form-group text-white">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Introducir contraseña" name="password">
+          </div>
+
+          <button type="submit" class="btn btn-secondary mb-3">Submit</button>
+        </form>
+
+      </div>
+    </div>
+
+    <div clas="row">
+      <div clas="col-12">
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <?php include 'footer_view.html';?> </footer>
+</body>
+
+</html>

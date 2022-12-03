@@ -1,0 +1,59 @@
+* {
+   margin: 0;
+   padding: 0;
+
+}
+
+body {
+   background-image: url(imgs/sala-de-cine.webp);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-color: aliceblue;
+   background-attachment: fixed;
+   background-position: center;
+   font-family: 'Allerta Stencil', sans-serif;
+}
+
+h1 {
+   margin: 2% 0;
+   padding: 1.5%;
+   background-color: rgba(250, 200, 200, 0.799);
+   text-align: center;
+}
+
+.contenedorLista {
+   float: left;
+   width: 100%;
+   text-align: center;
+
+
+}
+
+.listaCategorias {
+   list-style: none;
+   font-size: 200%;
+
+}
+
+a {
+
+   text-decoration: none;
+   margin-bottom: 50px;
+
+}
+
+a:link {
+   color: black;
+}
+
+a:visited {
+   color: black;
+}
+
+a:hover {
+   color: darkred;
+}
+
+a:active {
+   color: firebrick
+}

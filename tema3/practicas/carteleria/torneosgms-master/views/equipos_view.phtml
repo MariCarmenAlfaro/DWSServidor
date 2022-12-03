@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Clasificación</title>
+  <?php include 'head_view.html';?>
+</head>
+
+<body>
+
+  <?php include 'menu_view.phtml';?>
+
+
+  <div class="container">
+
+    <h2>Clasificación equipos</h2>
+
+
+    <div class="row">
+      <div class="col-md-8 col-12 table-responsive">
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre
+                <a href="index.php?controller=equipos&action=ordNombreAsc">
+                  <i class="fas fa-arrow-up"></i>
+                </a>
+                <a href="index.php?controller=equipos&action=ordNombreDesc">
+                  <i class="fas fa-arrow-down"></i>
+                </a>
+              </th>
+              <th class="textoCentrado">Puntos
+                <a href="index.php?controller=equipos&action=ordPuntosDesc">
+                  <i class="fas fa-arrow-down"></i>
+                </a>
+                <a href="index.php?controller=equipos&action=ordPuntosAsc">
+                  <i class="fas fa-arrow-up"></i>
+                </a>
+              </th>
+              <?php if (isset ($_SESSION['usuario'])) { echo "
+                  <th class='textoCentrado'>E. Puntos</th>
+                  <th class='textoCentrado'>Eliminar</th>
+                                  "; } 
+               ?>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+                foreach ($datos as $dato) {
+
+                  if (isset ($_SESSION['usuario'])) { 
+                    echo "
+                    <tr>
+                      <td>{$dato['nombre']}
+                      </td>
+
+                      <td class='textoCentrado'>
+                      {$dato['puntos']}
+                      </td>
+
+                      <td class='textoCentrado'>
+                      <a href=edicion.php?id={$dato['id_equipo']}><i class='fas fa-edit'></i></a>
+                    </td> 
+
+                    <td class='textoCentrado'>
+                      <a href=index.php?controller=equipos&action=delete&id={$dato['id_equipo']}><i class='fas fa-trash-alt'></i></a>
+                    </td> 
+
+                  </tr>";
+                  } else{
+
+                    echo"
+                    <tr>
+                      <td>{$dato['nombre']}
+                      </td>
+
+                      <td class='textoCentrado'>
+                      {$dato['puntos']}
+                      </td>
+                    </tr>
+                    
+                    ";
+                  }
+
+                     
+                   
+                    }
+            ?>
+
+          </tbody>
+        </table>
+
+      </div>
+
+
+
+
+      <div class="col-12 col-md-4">
+
+        <?php if (isset ($_SESSION['usuario'])) { include 'añadirEquipo_view.phtml'; } ?>
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <?php include 'footer_view.html';?> </footer>
+</body>
+
+</html>

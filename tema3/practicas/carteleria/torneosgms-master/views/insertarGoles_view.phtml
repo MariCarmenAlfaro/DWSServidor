@@ -1,0 +1,33 @@
+<h3 class="mb-2">Actualizar Goles</h3>
+
+
+<form action="index.php?controller=comentarios&action=insertarGoles" method="post">
+    <div class="form-group">
+        <label for="golLocal">E. Local:</label>
+
+        <?php
+    foreach ($datosPartidos as $datosPartido) {
+        if($datosPartido['equipo_local'] == $datosPartido['id_equipo']){
+            echo "<input class=' mt-2' type='number' name='golLocal' value={$datosPartido['goles_local']}>";
+        };
+    }
+?>
+
+
+    </div>
+
+    <div class="form-group">
+        <label for="golVisitante">E. Visitante:</label>
+        <?php
+    foreach ($datosPartidos as $datosPartido) {
+        if($datosPartido['equipo_local'] == $datosPartido['id_equipo']){
+            echo "<input type='number' class='mt-2' name='golVisitante' value={$datosPartido['goles_visitante']}>";
+        };
+         }?>
+    </div>
+
+    <br>
+
+    <button type="submit" id="editarGoles" class="btn btn-secondary mb-3" name="insert">Guardar goles</button>
+    <br>
+</form>

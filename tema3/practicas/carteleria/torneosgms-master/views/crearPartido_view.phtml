@@ -1,0 +1,34 @@
+<h3>Creación de partido</h3>
+
+<!-- //TODO no crear partidos con puntos, si no crear un formulario que coja  los nombres 
+                    // y crear otro formulario para elegir los equipos y ponerle los puntos que queramos -->
+
+<form action="index.php?controller=comentarios&action=crearPartido" method="post">
+    <div class="form-group">
+        <label for="equipoLocal">Equipo Local:</label>
+        <select id="equipoLocal" name="equipoLocal">
+
+            <?php
+                                foreach ($datosequipos as $datosequipo) {
+                                echo "<option  value={$datosequipo['id_equipo']}>{$datosequipo['nombre']} </option>";
+                                }  ?>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="equipoVisitante">Equipo visitante:</label>
+        <select id="equipoVisitante" name="equipoVisitante">
+
+            <?php
+                                foreach ($datosequipos as $datosequipo) {
+                                echo "<option value={$datosequipo['id_equipo']}>{$datosequipo['nombre']} </option>";
+                                }  ?>
+        </select>
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-secondary" name="insert" id="iniciarPartido" onclick="iniciar()">Crear Partido</button>
+
+</form>
+<br>

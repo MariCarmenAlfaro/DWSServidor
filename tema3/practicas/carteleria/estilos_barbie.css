@@ -1,0 +1,118 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* margin es el margen exterior. padding, margen interior */
+.barraNavegacion {
+
+    background-color: rgba(255, 209, 240, 0.845);
+    min-height: 10%;
+    padding: 10px;
+    font-family: 'Sevillana', cursive;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 1px 1px white;
+
+}
+
+.listaNavegacion {
+    display: inline;
+    text-align: center;
+    margin: 0 50px 0 0;
+}
+
+
+.cuerpo {
+    margin: auto;
+    background-color: rgb(255, 153, 209);
+    width: 70%;
+    padding: 5px;
+}
+
+.piePag {
+    background-color: rgb(255, 209, 240);
+    height: 10%;
+    background-color: rgba(255, 209, 240, 0.845);
+    padding: 10px;
+
+    text-align: center;
+
+}
+
+.piePagFicha {
+    height: 5%;
+    background-color: rgb(255, 153, 209);
+}
+
+.imagen {
+    width: 20%;
+    overflow: auto;
+    display: block;
+}
+
+
+.contenedor {
+    background-color: rgb(255, 153, 209);
+    min-height: 100%;
+    width: 100%;
+    background-image: url(imgs/barbie.jpg);
+
+    background-attachment: fixed;
+}
+
+.individuales {
+    font-family: 'Sevillana', cursive;
+    border: 2px solid rgb(248, 0, 145);
+    background-color: rgba(253, 221, 239, 0.836);
+    border-radius: 2%;
+    padding: 5px;
+    margin: 20px 8px;
+    position: relative;
+}
+
+.votos {
+    position: absolute;
+    right: 10%;
+    top: 3%;
+}
+
+.titulo {
+    font-weight: bold;
+}
+
+.tituloFicha {
+    font-size: 300%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.imagenFicha {
+    text-align: center;
+}
+
+.inicio:link,
+.inicio:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.inicio:hover {
+    color: rgb(255, 0, 255);
+}
+
+.inicio:active {
+    color: rgb(172, 0, 157)
+}
+
+.fichaGrande:link,
+.fichaGrande:visited {
+    position: absolute;
+    right: 10%;
+    color: rgb(255, 0, 255);
+}
+
+.fichaGrande:hover,
+.fichaGrande:active {
+    color: rgb(172, 0, 157)
+}

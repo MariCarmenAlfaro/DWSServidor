@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Torneos</title>
+    <?php 
+    
+    include 'head_view.html';
+    
+    if (!isset ($_SESSION['usuario'])){
+        header("Refresh: 30; URL='index.php?controller=comentarios&action=view'");
+    }
+    ?>
+</head>
+
+<body>
+
+
+    <?php include 'menu_view.phtml';?>
+
+    <div class="container">
+
+
+        <h2>Directo</h2>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <?php if (isset ($_SESSION['usuario'])) { include 'crearPartido_view.phtml'; } ?>
+            </div>
+            <div class="col-12 col-sm-6">
+                <?php if (isset ($_SESSION['usuario'])){
+                    echo "
+                    
+                    <a href='index.php?controller=equipos&action=view'><button type='button' class='btn btn-secondary mt-1 mb-1' data-toggle='tooltipPuntos' title='Te manda a la pantalla de equipos para que puedas modificar los puntos a los equipos necesarios' onclick='finalizar()' id='puntosPartido' disabled >Finalizar partido</button></a>
+                    <button type='button' class='btn btn-secondary mt-1 mb-1'  onclick='finalizar()' id='partidoErroneo' disabled >Eliminar partido erroneo</button>";
+                 } ?>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 ">
+
+
+                <h3 class="mb-3 mt-2">Información de partido</h3>
+                <?php
+                    foreach ($datosPartidos as $datosPartido) {
+                      if($datosPartido['equipo_local'] == $datosPartido['id_equipo']){
+                           echo "<h4>E. Local {$datosPartido['nombre']} - {$datosPartido['goles_local']} </h4>";
+                       }else{
+                          echo "<h4>E. Visitante {$datosPartido['nombre']} - {$datosPartido['goles_visitante']} </h4>";
+                             };
+                        }
+                    ?>
+                <br>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <?php if (isset ($_SESSION['usuario'])) { include 'añadirComentario_view.phtml'; } ?>
+            </div>
+
+            <div class="col-12 col-sm-6">
+                <?php if (isset ($_SESSION['usuario'])) { include 'insertarGoles_view.phtml'; } ?>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-12">
+
+                <?php if (isset ($_SESSION['usuario']))
+                    { echo "
+                       
+                         <a class='float-right' href='index.php?controller=comentarios&action=finalizarPartido'  data-toggle='tooltipFinalizarPartido' title='Elimina todos los comentarios del partido' id='finalizarPartido'  >Borrar todos los comentarios</a>"; 
+                    } 
+                ?>
+
+                <div class="table-responsive-sm">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Comentarios del partido
+                                    <a href='index.php?controller=comentarios&action=view' data-toggle='tooltipActualizar'
+                                        title='Actualiza los comentarios'>
+                                        <i class="fas fa-sync-alt float-right"></i>
+                                    </a>
+                                </th>
+                                <?php if (isset ($_SESSION['usuario']))
+                                { echo "
+                                 <th class='textoCentrado'>Eliminar</th> ";
+                                 } ?>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                foreach ($datos as $dato) {
+
+                                    if (isset ($_SESSION['usuario'])) {  
+                                    echo "
+                                    <tr>
+                                        <td>{$dato['mensaje']}</td>
+
+                                        
+                                        <td class='textoCentrado'>
+                                            <a href=index.php?controller=comentarios&action=delete&id={$dato['id_comentario']}><i class='fas fa-trash-alt'></i></a>
+                                        </td>
+                                    
+                                    </tr>";
+
+                                }else{
+                                    echo"
+                                    <tr>
+                                        <td>{$dato['mensaje']}</td>
+                                    </tr>
+                                    ";
+                                }
+                                
+                                }
+                            ?>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <?php if (isset ($_SESSION['usuario'])) { include 'comentariosScript_view.phtml'; } 
+
+include 'footer_view.html';?>
+
+
+
+</body>
+
+</html>

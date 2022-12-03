@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Registro</title>
+  <?php include 'head_view.html';?>
+  <script src="usuarios_registro.js"></script>
+</head>
+
+<body>
+
+  <?php include 'menu_view.phtml';?>
+
+
+  <div class="container">
+
+    <h2>Registro</h2>
+
+
+    <div class="row">
+      <div class="col-6">
+
+        <form action="index.php?controller=usuarios&action=insert" method="post">
+
+          <div class="form-group">
+            <label for="nombre">Nombre :</label>
+            <input type="text" name="nombre" value="" required>
+          </div>
+
+          <div class="form-group">
+            <label for="usuario">Usuario:</label>
+            <input type="text" name="usuario" value="" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" value="" id="password" onblur="password1()" required>
+            <label class="labelNormal" id="comprobacionPassword"></label>
+          </div>
+
+          <div class="form-group">
+            <label for="password2">Repite la contraseña:</label>
+            <input type="password" name="password2" value="" id="password2" onblur="passwordrepeat()" required>
+            <label class="labelNormal" id="comprobacionPasswordRepeticion"></label>
+          </div>
+
+          <!-- <div class="alert alert-danger alert-dismissable fade show invisible" id="alertaDeContrasena">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>  Error </strong> en el campo Contraseña, no son iguales,
+            </div> -->
+
+          <div class='form-group form-check'>
+            <label class='form-check-label labelNormal'>
+              <input class='form-check-input' id="check" type='checkbox' disabled onClick="enableSend()"> Estoy de acuerdo con los
+              <a href="#" title="Terminos y condiciones" data-toggle="popoverTerminos" data-placement="bottom"
+                data-trigger="focus" data-content="No compartir información de esta página a gente que no es administradora de la web. ">terminos y condiciones.</a>
+            </label>
+          </div>
+
+
+
+
+          <button type="submit" class="btn btn-secondary mb-3" name="insert" disabled id="crear">Crear</button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <?php include 'footer_view.html';?> </footer>
+
+</body>
+
+</html>

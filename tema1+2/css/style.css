@@ -1,0 +1,84 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* margin es el margen exterior. padding, margen interior */
+.primera_caja {
+    background-color: rgb(255, 209, 240);
+    height: 25%;
+}
+
+.segunda_caja {
+    background-color: rgb(255, 153, 209);
+    height: 50%;
+}
+
+.tercera_caja {
+    background-color: rgb(255, 209, 240);
+    height: 25%;
+}
+
+.primera_columna {
+    float: left;
+    height: 100%;
+    width: 28%;
+    background-color: rgb(255, 153, 209);
+
+}
+
+.listaAct {
+    padding: 10%;
+    list-style: none;
+    color: black;
+}
+
+.act {
+    padding: 2%;
+    color: black;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+    text-decoration: underline;
+}
+
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: hotpink;
+}
+
+.segunda_columna {
+    float: left;
+    height: 100%;
+    width: 44%;
+    background-color: white;
+}
+
+.tercera_columna {
+    float: left;
+    height: 100%;
+    width: 28%;
+    background-color: rgb(255, 153, 209);
+    
+}
+
+.pieDePagina {
+    height: 10%;
+    width: 100%;
+}
+
+.contenedor {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
