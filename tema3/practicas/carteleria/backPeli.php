@@ -10,7 +10,7 @@ contenidoPeli();
 
 function contenidoPeli()
 {
-    $conexion = mysqli_connect('localhost', 'root', '1234');
+    $conexion = mysqli_connect('localhost', 'root', '12345');
 
     if (mysqli_connect_errno()) {
         echo "Error al conectar a MySQL" . mysqli_connect_error();
@@ -18,16 +18,9 @@ function contenidoPeli()
 
     mysqli_select_db($conexion, 'carteleria');
    
-    
-    
     $id_categoria =$_GET['genero'];
     $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
-
-    if ($_GET["genero"] === "2") {
-        $consulta = "SELECT * FROM T_Pelicula  where id_categoria=2;";
-    } elseif ($_GET["genero"] === "1") {
-        $consulta = "SELECT * FROM T_Pelicula where id_categoria=1 ;";
-    }
+    $consulta = "SELECT * FROM T_PELICULA  where id_categoria='".$sanitized_categoria_id."';";
   //  $consulta = "SELECT * FROM T_Pelicula  ;";
   
    
@@ -40,10 +33,11 @@ function contenidoPeli()
     } else 
     {
         $arrayPeli = [];
-        $contador = 0;
+       
         if (($resultado->num_rows) > 0) {
             while ($registro = mysqli_fetch_assoc($resultado)) {
-              $peli = new Pelicula(
+              
+                $peli = new Pelicula(
                     $registro['id'],
                     $registro['titulo'],
                     $registro['año'],
@@ -55,6 +49,9 @@ function contenidoPeli()
               );
               $arrayPeli[] = $peli;
                 pintarPeli($peli);
+                
+
+                echo $registro['titulo'];
             }
         
           

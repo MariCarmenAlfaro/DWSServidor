@@ -43,8 +43,6 @@
 
             require('backPeli.php');
 
-           // contenidoPeli();
-    
             ?>
 
 
