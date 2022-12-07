@@ -47,10 +47,12 @@ padding: 5px;
 
 
 .imagen {
-    width: 20%;
-    overflow: auto;
-    display: block;
+    max-width: 20%;
+    height: auto;
+   float: left;
+    display: inline;
     margin: 0px 10px;
+    overflow: auto;
 }
 
 
@@ -72,6 +74,7 @@ padding: 5px;
     padding: 5px;
     margin: 20px 8px;
     position: relative;
+
 }
 
 

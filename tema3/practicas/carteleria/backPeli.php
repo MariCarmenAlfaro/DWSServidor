@@ -10,7 +10,7 @@ contenidoPeli();
 
 function contenidoPeli()
 {
-    $conexion = mysqli_connect('localhost', 'root', '12345');
+    $conexion = mysqli_connect('localhost', 'root', '1234');
 
     if (mysqli_connect_errno()) {
         echo "Error al conectar a MySQL" . mysqli_connect_error();
@@ -32,7 +32,6 @@ function contenidoPeli()
         die($mensaje);
     } else 
     {
-        $arrayPeli = [];
        
         if (($resultado->num_rows) > 0) {
             while ($registro = mysqli_fetch_assoc($resultado)) {
@@ -47,11 +46,9 @@ function contenidoPeli()
                     $registro['votos'],
                     $registro['id_categoria']
               );
-              $arrayPeli[] = $peli;
+           
                 pintarPeli($peli);
                 
-
-                echo $registro['titulo'];
             }
         
           
@@ -84,7 +81,8 @@ function pintarPeli($peli)
   echo "<br/>";
   echo "<br/>";
   echo "Duración: ".$peli->duracion." minutos.";
-  echo "<a href='fichaPelicula.php' class='fichaGrande'> Ver ficha</a> ";
+
+ echo "<a href='fichaPelicula.php?id=". $peli->id ."&genero=".$peli->id_categoria."' class='fichaGrande'> Ver ficha</a> ";
 
   echo "</div>";
     }
@@ -99,8 +97,8 @@ class Pelicula
     public $sinopsis;
     public $imagen;
     public $votos;
-    public $idCategoria;
-    function __construct($id, $titulo, $año, $duracion, $sinopsis, $imagen, $votos, $idCategoria)
+    public $id_categoria;
+    function __construct($id, $titulo, $año, $duracion, $sinopsis, $imagen, $votos, $id_categoria)
     {
         $this->id = $id;
         $this->titulo = $titulo;
@@ -109,7 +107,7 @@ class Pelicula
         $this->sinopsis = $sinopsis;
         $this->imagen = $imagen;
         $this->votos = $votos;
-        $this->idCategoria = $idCategoria;
+        $this->id_categoria = $id_categoria;
         //contenidoPeli();
     }
     
@@ -138,5 +136,13 @@ class Pelicula
     public function setDescripcion($descripcion)
     {
         return $this->descripcion;
+    }
+    public function getIdCategoria()
+    {
+        return $this->IdCategoria;
+    }
+    public function setIdCategoria($idCategoria)
+    {
+        return $this->idCategoria;
     }
 }
