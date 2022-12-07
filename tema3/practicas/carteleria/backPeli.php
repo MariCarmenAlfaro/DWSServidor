@@ -1,16 +1,10 @@
 <?php
-/*$usuario = $_POST["usuario"];
-$password =  $_POST["password"];
-echo $usuario;
-echo $password;*/
-
-
 contenidoPeli();
 
 
 function contenidoPeli()
 {
-    $conexion = mysqli_connect('localhost', 'root', '1234');
+    $conexion = mysqli_connect('localhost', 'root', '12345');
 
     if (mysqli_connect_errno()) {
         echo "Error al conectar a MySQL" . mysqli_connect_error();
@@ -71,13 +65,14 @@ function pintarPeli($peli)
 
   echo "<br/>";
 
+  echo "<div class='conjuntoImgSinopsis'>";
   echo "<div ><img class='imagen'  src=" . $peli->imagen . ">
                                       </div>";
 
   echo "<br/>";
 
   echo  "<div class='descripcion'>" . $peli->sinopsis . "</div>";
-
+  echo "</div>";
   echo "<br/>";
   echo "<br/>";
   echo "Duración: ".$peli->duracion." minutos.";

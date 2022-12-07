@@ -37,13 +37,11 @@ padding: 5px;
     text-align: center;
 }
 
-.piePagFicha {
-    background-color: rgb(177, 221, 177, 0.705);
-    min-height: 5%;
-    background-image: url(imgs/sangre.png);
+
+.conjuntoImgSinopsis{
+    width: 100%;
+    overflow: auto;
 }
-
-
 
 
 .imagen {
@@ -52,7 +50,7 @@ padding: 5px;
    float: left;
     display: inline;
     margin: 0px 10px;
-    overflow: auto;
+    
 }
 
 
@@ -84,6 +82,24 @@ padding: 5px;
     top: 3%;
 
 }
+.botonVotar{
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    font-size: medium;
+    background-color: rgb(29, 75, 29);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.votosFicha{
+    position: absolute;
+    right: 10%;
+    bottom: 3%;
+}
 
 .titulo {
     font-weight: bold;
@@ -99,24 +115,29 @@ padding: 5px;
 }
 
 .imagenFicha {
-    text-align: center;
+    margin: auto;
     width: 40%;
     overflow: auto;
     display: block;
 }
 
 .inicio:link,
-.inicio:visited {
+.inicio:visited,
+.volverFicha:link,
+.volverFicha:visited {
     text-decoration: none;
     color: rgb(15, 119, 15);
 }
 
 
-.inicio:hover {
+.inicio:hover,
+.volverFicha:hover {
     color: darkred;
+    cursor: pointer;
 }
 
-.inicio:active {
+.inicio:active,
+.volverFicha:active {
     color: red
 }
 

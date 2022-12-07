@@ -14,7 +14,7 @@
         echo  "<link rel=stylesheet href=estilos_terror.css>";
     } elseif ($_GET["genero"] === "1") {
         echo "<link rel=stylesheet href=estilos_barbie.css>";
-    }else{
+    } else {
         header('categorias.php');
     }
     ?>
@@ -23,21 +23,20 @@
 <body>
     <div class="contenedor">
         <div class="barraNavegacion">
-         <?php
-        
-           echo "<a href=peliculas.php?genero=".$_GET['genero']." class=volverFicha >Volver</a>";
+            <?php
 
-           echo "<a href=votos.php >Votar pelicula</a>";
+            echo "<a href=peliculas.php?genero=" . $_GET['genero'] . " class=volverFicha >Volver</a>";
 
-         echo "<form action= 'votos.php?' method='post'>
-        <input id='idPelicula' name='idPelicula' value=
-           ".$_GET['id']." style='display:none'>
-         	<input type='submit' value='Votar'>
-        </form>";
-           
 
-  ?>
-           
+
+            echo "<form action= 'votos.php?' method='post'>
+                    <input id='idPelicula' name='idPelicula' value=" . $_GET['id'] . " style='display:none'>
+         	        <input class='botonVotar' type='submit' value='Votar película'>
+                </form>";
+
+
+            ?>
+
         </div>
         <div class="cuerpo">
 
@@ -47,7 +46,7 @@
             contenidoPeli();
             function contenidoPeli()
             {
-                $conexion = mysqli_connect('localhost', 'root', '1234');
+                $conexion = mysqli_connect('localhost', 'root', '12345');
 
                 if (mysqli_connect_errno()) {
                     echo "Error al conectar a MySQL" . mysqli_connect_error();
@@ -58,10 +57,11 @@
 
 
                 $id_peli = $_GET['id'];
-                
+
                 $sanitized_peli_id = mysqli_real_escape_string($conexion, $id_peli);
-                 $consulta = "SELECT * FROM T_PELICULA inner join T_REPARTO_PELICULA on id=id_peli inner join T_REPARTO on id_reparto=idReparto where id=".$sanitized_peli_id.";";
-            echo $consulta;
+                $consulta = "select * from T_REPARTO inner join T_REPARTO_PELICULA on id_reparto= idReparto inner join T_PELICULA on id= id_peli 
+                inner join T_DIRECCION_PELICULA on id= id_direccion inner join T_DIRECCION on id_direccion=idDireccion where id=" . $sanitized_peli_id . ";";
+
                 //  $consulta = "SELECT * FROM T_Pelicula  ;";
 
 
@@ -73,12 +73,12 @@
                     die($mensaje);
                 } else {
                     $arrayPeli = [];
-                    $arrayReparto=[];
-                    $contador = 0;
-                 
+                    $arrayReparto = [];
+
+
                     if (($resultado->num_rows) > 0) {
                         while ($registro = mysqli_fetch_assoc($resultado)) {
-                            
+
                             $peliReparto = new PeliculaReparto(
                                 $registro['id'],
                                 $registro['titulo'],
@@ -91,52 +91,57 @@
                                 $registro['id_peli'],
                                 $registro['id_reparto'],
                                 $registro['idReparto'],
-                                $registro['nombreReparto']
+                                $registro['nombreReparto'],
+                                $registro['id_direccion'],
+                                $registro['idDireccion'],
+                                $registro['nombreDireccion']
+
                             );
-                            $arrayPeli[] = $peliReparto; 
-                            $arrayReparto[]=$registro['nombreReparto'];
-                            
+                            $arrayPeli[] = $peliReparto;
+                            $arrayReparto[] = $registro['nombreReparto'];
                         }
-                        print_r($arrayReparto);
+
                         pintarPeli($peliReparto, $arrayReparto);
                     } else {
                         echo "No hay resultados";
-                       
                     }
                 }
             }
-          
-            function pintarPeli($peli,$arrayReparto)
-    {
-  echo "<div class='individuales'>";
- 
 
-  echo "<div class='titulo'>" . $peli->titulo . "   </div>";
+            function pintarPeli($peli, $arrayReparto)
+            {
+                echo "<div class='individuales'>";
 
-  echo "<p class='votos'>Votos: ". $peli->votos."</p> ";
 
-  echo "<br/>";
+                echo "<div class='tituloFicha'>" . $peli->titulo . "   </div>";
 
-  echo "<div ><img class='imagen'  src=" . $peli->imagen . ">
+                echo "<p class='votosFicha'>Votos: " . $peli->votos . "</p> ";
+
+                echo "<br/>";
+
+                echo "<div ><img class='imagenFicha'  src=" . $peli->imagen . ">
                                       </div>";
 
-  echo "<br/>";
+                echo "<br/>";
 
-  echo  "<div class='descripcion'>" . $peli->sinopsis . "</div>";
+                echo  "<div class='descripcionFicha'>" . $peli->sinopsis . "</div>";
 
-  echo "<br/>";
-  echo "<br/>";
-  echo "Duración: ".$peli->duracion." minutos.";
+                echo "<br/>";
+                echo "<br/>";
+                echo "Duración: " . $peli->duracion . " minutos.";
+                echo "<br/>";
+                echo "<br/>";
+                echo  "<div class='director'>Director/a: " . $peli->nombreDireccion . "</div>";
 
-echo "Reparto: ";
-for ($i=0; $i <count($arrayReparto) ; $i++) { 
-   echo $arrayReparto[$i];
-}
-
-  
-
-  echo "</div>";
-    }
+                echo "<br/>";
+                echo "Reparto: ";
+                for ($i = 0; $i < count($arrayReparto); $i++) {
+                    echo $arrayReparto[$i] . " - ";
+                }
+               
+                echo "<br/>";
+                echo "</div>";
+            }
 
             class PeliculaReparto
             {
@@ -152,8 +157,26 @@ for ($i=0; $i <count($arrayReparto) ; $i++) {
                 public $id_peli;
                 public $idReparto;
                 public $nombreReparto;
-                function __construct($id, $titulo, $año, $duracion, $sinopsis, $imagen, $votos, $idCategoria, $id_reparto,$id_peli,$idReparto,$nombreReparto)
-                {
+                public $id_direcccion;
+                public $idDireccion;
+                public $nombreDireccion;
+                function __construct(
+                    $id,
+                    $titulo,
+                    $año,
+                    $duracion,
+                    $sinopsis,
+                    $imagen,
+                    $votos,
+                    $idCategoria,
+                    $id_reparto,
+                    $id_peli,
+                    $idReparto,
+                    $nombreReparto,
+                    $id_direcccion,
+                    $idDireccion,
+                    $nombreDireccion
+                ) {
                     $this->id = $id;
                     $this->titulo = $titulo;
                     $this->año = $año;
@@ -166,12 +189,14 @@ for ($i=0; $i <count($arrayReparto) ; $i++) {
                     $this->id_peli = $id_peli;
                     $this->idReparto = $idReparto;
                     $this->nombreReparto = $nombreReparto;
-                   
+                    $this->id_direccion = $id_direcccion;
+                    $this->idDireccion = $idDireccion;
+                    $this->nombreDireccion = $nombreDireccion;
                     //contenidoPeli();
                 }
-                
-              
-            
+
+
+
                 public function getTitulo()
                 {
                     return $this->titulo;
@@ -203,7 +228,7 @@ for ($i=0; $i <count($arrayReparto) ; $i++) {
 
 
         </div>
-        <div class="piePagFicha"></div>
+       
     </div>
 </body>
 

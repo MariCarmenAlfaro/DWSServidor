@@ -42,7 +42,11 @@
             <?php
 
             require('backPeli.php');
-
+/*
+PONER ESTILOS Y CAMBIOS EN CSS BARBIE
+MIRAR ORDEN VOTOS Y TITULOS
+PPNER SI HAY ERROR QUE SALGA PAGINA DE ERROR
+*/ 
             ?>
 
 
