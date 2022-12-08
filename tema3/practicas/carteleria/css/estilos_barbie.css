@@ -58,7 +58,7 @@
     background-color: rgb(255, 153, 209);
     min-height: 100%;
     width: 100%;
-    background-image: url(imgs/barbie.jpg);
+    background-image: url(../imgs/barbie.jpg);
 
     background-attachment: fixed;
 }

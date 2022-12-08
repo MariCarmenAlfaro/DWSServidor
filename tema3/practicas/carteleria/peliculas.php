@@ -11,9 +11,9 @@
 
     <?php
     if ($_GET["genero"] === "2") {
-        echo  "<link rel=stylesheet href=estilos_terror.css>";
+        echo  "<link rel=stylesheet href=css/estilos_terror.css>";
     } elseif ($_GET["genero"] === "1") {
-        echo "<link rel=stylesheet href=estilos_barbie.css>";
+        echo "<link rel=stylesheet href=css/estilos_barbie.css>";
     }else{
         header('categorias.php');
     }
@@ -23,6 +23,7 @@
 </head>
 
 <body>
+ 
     <div class="contenedor">
         <div class="barraNavegacion">
             <ul>
@@ -30,7 +31,21 @@
                     <a href="categorias.php" class="inicio">Inicio</a>
                 </li>
                 <li class="listaNavegacion">
-                    <a href="categorias.php" class="inicio">Ordenar por votos</a>
+                    <!--<button onclick= "pintarPeli(obtenerPeliculasOrdenadas('votos'))" class="inicio">Ordenar por votos</button>-->
+<script>
+    function prueba(){
+        alert("hola"); 
+    }
+</script>
+
+<?php
+ 
+                  echo   "<button type='button' onclick='prueba();' class='inicio'>Ordenar por votos</button>";
+                    
+   
+    ?>
+    <input type="submit" name="" value="Buscar" id="boton1" onclick = "prueba();">
+
                 </li>
                 <li class="listaNavegacion">
                     <a href="categorias.php" class="inicio">Ordenar por título</a>
@@ -45,7 +60,7 @@
 /*
 PONER ESTILOS Y CAMBIOS EN CSS BARBIE
 MIRAR ORDEN VOTOS Y TITULOS
-PPNER SI HAY ERROR QUE SALGA PAGINA DE ERROR
+
 */ 
             ?>
 

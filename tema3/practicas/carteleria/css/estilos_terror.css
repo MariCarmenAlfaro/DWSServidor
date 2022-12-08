@@ -58,7 +58,7 @@ padding: 5px;
     background-color: black;
     min-height: 100%;
     width: 100%;
-    background-image: url(imgs/sangre.png);
+    background-image: url(../imgs/sangre.png);
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
@@ -157,6 +157,5 @@ padding: 5px;
 .contenedorFicha {
     width: 100%;
     height: 100%;
-    background-image: url(terror.jpg);
-    background-size: cover;
+   
 }

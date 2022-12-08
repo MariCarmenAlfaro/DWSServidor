@@ -15,7 +15,7 @@
     } elseif ($_GET["genero"] === "1") {
         echo "<link rel=stylesheet href=estilos_barbie.css>";
     } else {
-        header('categorias.php');
+        header('Location: controlErrores.php');
     }
     ?>
 </head>
@@ -46,15 +46,7 @@
             contenidoPeli();
             function contenidoPeli()
             {
-                $conexion = mysqli_connect('localhost', 'root', '12345');
-
-                if (mysqli_connect_errno()) {
-                    echo "Error al conectar a MySQL" . mysqli_connect_error();
-                }
-
-                mysqli_select_db($conexion, 'carteleria');
-
-
+                require('conexionBD.php');
 
                 $id_peli = $_GET['id'];
 
@@ -103,7 +95,7 @@
 
                         pintarPeli($peliReparto, $arrayReparto);
                     } else {
-                        echo "No hay resultados";
+                        header('Location: controlErrores.php');
                     }
                 }
             }
@@ -136,7 +128,12 @@
                 echo "<br/>";
                 echo "Reparto: ";
                 for ($i = 0; $i < count($arrayReparto); $i++) {
-                    echo $arrayReparto[$i] . " - ";
+                 
+                    if(count($arrayReparto)==$i+1){
+                    echo $arrayReparto[$i];
+                    }else{
+                        echo $arrayReparto[$i]. " - ";
+                    }
                 }
                
                 echo "<br/>";

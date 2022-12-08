@@ -5,7 +5,7 @@
 }
 
 body {
-   background-image: url(imgs/sala-de-cine.webp);
+   background-image: url(../imgs/sala-de-cine.webp);
    background-size: cover;
    background-repeat: no-repeat;
    background-color: aliceblue;
