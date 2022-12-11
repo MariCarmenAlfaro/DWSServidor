@@ -3,7 +3,6 @@
     padding: 0px;
 }
 
-/* margin es el margen exterior. padding, margen interior */
 .barraNavegacion {
     background-color: rgba(152, 41, 41, 0.644);
     min-height: 10%;
@@ -12,7 +11,6 @@
     font-weight: bold;
     font-size: 30px;
     text-shadow: 1px 1px white;
-
 }
 
 .listaNavegacion {
@@ -20,40 +18,6 @@
     text-align: center;
     margin: 0 50px 0 0;
 }
-
-.cuerpo {
-    margin: auto;
-    background-color: rgb(29, 75, 29);
-    width: 70%;
-padding: 5px;
-
-}
-
-.piePag {
-    background-color: rgba(152, 41, 41, 0.644);
-    min-height: 10%;
-    padding: 10px;
-
-    text-align: center;
-}
-
-
-.conjuntoImgSinopsis{
-    width: 100%;
-    overflow: auto;
-}
-
-
-.imagen {
-    max-width: 20%;
-    height: auto;
-   float: left;
-    display: inline;
-    margin: 0px 10px;
-    
-}
-
-
 .contenedor {
     background-color: black;
     min-height: 100%;
@@ -63,24 +27,57 @@ padding: 5px;
     background-position: top;
     background-attachment: fixed;
 }
+.cuerpo {
+    margin: auto;
+    background-color: rgb(29, 75, 29);
+    width: 70%;
+    padding: 5px;
 
+}
 .individuales {
     font-family: 'Metal Mania', cursive;
-    border: 2px solid darkred;
+    border: 2px groove darkred;
     background-color: rgba(79, 112, 79, 0.63);
     border-radius: 2%;
     padding: 5px;
     margin: 20px 8px;
-    position: relative;
+  
 
 }
+.conjuntoImgSinopsis{
+    width: 100%;
+    overflow: auto;
+}
+.titulo {
+    font-weight: bold;
+    font-size: larger;
+    margin: 10px;
 
-
+}
+.imagen {
+    max-width: 20%;
+    height: auto;
+   float: left;
+    display: inline;
+    margin: 0px 10px;
+    
+}
 .votos {
     position: absolute;
-    right: 10%;
-    top: 3%;
+    right: 20%;
+    top: 20%;
 
+}
+.piePag {
+    background-color: rgba(152, 41, 41, 0.644);
+    min-height: 10%;
+    padding: 10px;
+    text-align: center;
+}
+.contenedorFicha {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 .botonVotar{
     position: absolute;
@@ -97,16 +94,14 @@ padding: 5px;
 }
 .votosFicha{
     position: absolute;
-    right: 10%;
-    bottom: 3%;
+    display: block;
+    right: 20%;
+    top: 5%;
+    font-size: x-large;
+    font-weight: 600;
 }
 
-.titulo {
-    font-weight: bold;
-    font-size: larger;
-    margin: 10px;
 
-}
 
 .tituloFicha {
     font-size: 300%;
@@ -146,7 +141,7 @@ padding: 5px;
 
     color: darkred;
     position: absolute;
-    right: 10%;
+    right: 20%;
 }
 
 .fichaGrande:hover,
@@ -154,8 +149,3 @@ padding: 5px;
     color: red
 }
 
-.contenedorFicha {
-    width: 100%;
-    height: 100%;
-   
-}

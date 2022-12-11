@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha</title>
+    <title>Descripción película</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Sevillana&display=swap" rel="stylesheet">
 
     <?php
+    
     if ($_GET["genero"] === "2") {
-        echo  "<link rel=stylesheet href=estilos_terror.css>";
+        echo  "<link rel=stylesheet href=css/estilos_terror.css>";
     } elseif ($_GET["genero"] === "1") {
-        echo "<link rel=stylesheet href=estilos_barbie.css>";
+        echo "<link rel=stylesheet href=css/estilos_barbie.css>";
     } else {
         header('Location: controlErrores.php');
     }
@@ -107,7 +108,7 @@
 
                 echo "<div class='tituloFicha'>" . $peli->titulo . "   </div>";
 
-                echo "<p class='votosFicha'>Votos: " . $peli->votos . "</p> ";
+                echo "<div class='votosFicha'>Votos: " . $peli->votos . "</div> ";
 
                 echo "<br/>";
 

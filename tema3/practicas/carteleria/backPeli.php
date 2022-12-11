@@ -68,6 +68,7 @@ function pintarPeli($peliculas)
         echo "<br/>";
       
         echo  "<div class='descripcion'>" . $peli->sinopsis . "</div>";
+    
         echo "</div>";
         echo "<br/>";
         echo "<br/>";
