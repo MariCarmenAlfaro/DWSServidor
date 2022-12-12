@@ -13,11 +13,13 @@
     text-shadow: 1px 1px white;
 
 }
+
 .listaNavegacion {
     display: inline;
     text-align: center;
     margin: 0 50px 0 0;
 }
+
 .contenedor {
     background-color: rgb(255, 153, 209);
     min-height: 100%;
@@ -25,12 +27,14 @@
     background-image: url(../imgs/barbie.jpg);
     background-attachment: fixed;
 }
+
 .cuerpo {
     margin: auto;
     background-color: rgb(255, 153, 209);
     width: 70%;
     padding: 5px;
 }
+
 .individuales {
     font-family: 'Sevillana', cursive;
     border: 1px dashed rgb(248, 0, 145);
@@ -38,31 +42,32 @@
     border-radius: 2%;
     padding: 5px;
     margin: 20px 8px;
-    
+    position: relative;
 }
-.descripcion{
-    row-gap: 3;
-}
-.conjuntoImgSinopsis{
+
+.conjuntoImgSinopsis {
     width: 100%;
     overflow: auto;
 }
+
 .titulo {
     font-weight: bold;
     font-size: larger;
     margin: 10px;
 }
+
 .imagen {
     max-width: 20%;
     height: auto;
-   float: left;
+    float: left;
     display: inline;
     margin: 0px 10px;
 }
+
 .votos {
     position: absolute;
-    right: 20%;
-    top: 20%;
+    right: 10%;
+    top: 10%;
 }
 
 .piePag {
@@ -76,9 +81,10 @@
 .contenedorFicha {
     width: 100%;
     height: 100%;
-   position: relative;
+
 }
-.botonVotar{
+
+.botonVotar {
     position: absolute;
     right: 5%;
     top: 3%;
@@ -91,18 +97,19 @@
     margin: 4px 2px;
     cursor: pointer;
 }
-.votosFicha{
+
+.votosFicha {
     position: absolute;
     display: block;
-    right: 20%;
-    top: 5%;
+    right: 10%;
+    top: 4%;
     font-size: x-large;
     font-weight: 600;
 }
 
 .tituloFicha {
     font-size: 300%;
-    text-align: center;
+    margin: 4%;
     font-weight: bold;
 }
 
@@ -114,15 +121,15 @@
 }
 
 .inicio:link,
-.inicio:visited,.volverFicha:link,
-.volverFicha:visited
- {
+.inicio:visited,
+.volverFicha:link,
+.volverFicha:visited {
     text-decoration: none;
     color: black;
 }
 
-.inicio:hover,.volverFicha:hover
- {
+.inicio:hover,
+.volverFicha:hover {
     color: rgb(255, 0, 255);
 }
 
@@ -134,7 +141,7 @@
 .fichaGrande:link,
 .fichaGrande:visited {
     position: absolute;
-    right: 20%;
+    right: 10%;
     color: rgb(255, 0, 255);
 }
 

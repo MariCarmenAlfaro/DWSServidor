@@ -82,11 +82,11 @@ function pintarPeli($peliculas)
     }
 function obtenerPeliculasOrdenadas($tipoOrdenacion){
     require('conexionBD.php');
-    $id_categoria =$_GET['genero'];
-    $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
+    $ordenacion =$_GET['ordenacion'];
+    $sanitized_categoria_id = mysqli_real_escape_string($conexion, $ordenacion);
     if($tipoOrdenacion=='votos'){
-    $consulta = "SELECT * FROM T_PELICULA  where id_categoria='".$sanitized_categoria_id."'order by votos;";}else{
-        $consulta = "SELECT * FROM T_PELICULA  where id_categoria='".$sanitized_categoria_id."'order by titulo;";
+    $consulta = "SELECT * FROM T_PELICULA  where ordenacion='".$sanitized_categoria_id."'order by votos;";}else{
+        $consulta = "SELECT * FROM T_PELICULA  where ordenacion='".$sanitized_categoria_id."'order by titulo;";
     }
   //  $consulta = "SELECT * FROM T_Pelicula  ;";
   
