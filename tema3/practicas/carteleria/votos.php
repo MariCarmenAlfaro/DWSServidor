@@ -13,14 +13,14 @@
 </head>
 <body>
 <?php
-echo $_POST['idPelicula'];
+
 require('conexionBD.php');
 
 
 $id_peli = $_POST['idPelicula'];
 
 $sanitized_peli_id = mysqli_real_escape_string($conexion, $id_peli);
-$consulta = "update T_PELICULA set votos = votos+1 where id=". $sanitized_peli_id . ";";
+$consulta = "update T_PELICULA set voto = votos+1 where id=". $sanitized_peli_id . ";";
 
 //  $consulta = "SELECT * FROM T_Pelicula  ;";
 

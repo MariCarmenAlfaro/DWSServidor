@@ -101,5 +101,3 @@ select * from T_CATEGORIA;
 select * from T_REPARTO;
 select * from T_DIRECCION;
 select * from T_DIRECCION_PELICULA;
-select * from T_REPARTO_PELICULA;
-

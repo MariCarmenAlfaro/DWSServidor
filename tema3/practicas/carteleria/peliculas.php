@@ -34,25 +34,14 @@
             <ul>
                 <li class="listaNavegacion">
                     <a href="categorias.php" class="inicio">Inicio</a>
-                </li>
-                <li class="listaNavegacion">
-                    <!--<button onclick= "pintarPeli(obtenerPeliculasOrdenadas('votos'))" class="inicio">Ordenar por votos</button>-->
+               <?php
+                   echo  "<a href='peliculas.php?genero=".$_GET['genero']."&ordenacion=1' class='orden'>Votos ascendentes</a>";
+                   echo  "<a href='peliculas.php?genero=".$_GET['genero']."&ordenacion=2' class='orden'>Votos descendentes</a>";
+                   echo  "<a href='peliculas.php?genero=".$_GET['genero']."&ordenacion=3' class='orden'>Título ascendiente</a>";
+                   echo  "<a href='peliculas.php?genero=".$_GET['genero']."&ordenacion=4' class='orden'>Título descendiente</a>";
+                   
 
-
-                    <?php
-
-                    echo "<form action='peliculas.php?' method='get'>
-                        <input id='ordenacion' name='ordenacion' value=" . $_GET['ordenacion'] . ">
-                        <input class='inicio' type='submit' value='Ordenar por voto'>
-                        </form>";
-
-
-                    ?>
-
-
-                </li>
-                <li class="listaNavegacion">
-                    <a href="categorias.php" class="inicio">Ordenar por título</a>
+                  ?>
                 </li>
             </ul>
         </div>

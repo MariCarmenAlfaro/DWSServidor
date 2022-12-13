@@ -52,8 +52,8 @@
                 $id_peli = $_GET['id'];
 
                 $sanitized_peli_id = mysqli_real_escape_string($conexion, $id_peli);
-                $consulta = "select * from T_REPARTO inner join T_REPARTO_PELICULA on id_reparto= idReparto inner join T_PELICULA on id= id_peli 
-                inner join T_DIRECCION_PELICULA on id= id_direccion inner join T_DIRECCION on id_direccion=idDireccion where id=" . $sanitized_peli_id . ";";
+                $consulta = "select * from T_REPARTO left join T_REPARTO_PELICULA on id_reparto= idReparto left join T_PELICULA on id= id_peli 
+                left join T_DIRECCION_PELICULA on id= id_direccion left join T_DIRECCION on id_direccion=idDireccion where T_DIRECCION_PELICULA.id_peli=" . $sanitized_peli_id . ";";
 
                 //  $consulta = "SELECT * FROM T_Pelicula  ;";
 
@@ -96,7 +96,7 @@
 
                         pintarPeli($peliReparto, $arrayReparto);
                     } else {
-                        header('Location: controlErrores.php');
+                       // header('Location: controlErrores.php');
                     }
                 }
             }

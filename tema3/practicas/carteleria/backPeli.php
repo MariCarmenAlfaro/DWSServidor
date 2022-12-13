@@ -4,25 +4,40 @@ pintarPeli(contenidoPeli());
 
 function contenidoPeli()
 {
- require('conexionBD.php');
-    $id_categoria =$_GET['genero'];
+    require('conexionBD.php');
+    $id_categoria = $_GET['genero'];
+    $ordenacion = $_GET['ordenacion'];
     $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
-    $consulta = "SELECT * FROM T_PELICULA  where id_categoria='".$sanitized_categoria_id."';";
-  //  $consulta = "SELECT * FROM T_Pelicula  ;";
-  
-   
+    $sanitized_ordenacion = mysqli_real_escape_string($conexion, $ordenacion);
+    switch ($sanitized_ordenacion) {
+        case 1:
+            $tipoOrden = "order by votos";
+            break;
+        case 2:
+            $tipoOrden = "order by votos desc";
+            break;
+        case 3:
+            $tipoOrden = "order by titulo";
+            break;
+        case 4:
+            $tipoOrden = "order by titulo desc ";
+            break;
+    }
+    $consulta = "SELECT * FROM T_PELICULA  where id_categoria=" . $sanitized_categoria_id . " ".$tipoOrden.";";
+    //  $consulta = "SELECT * FROM T_Pelicula  ;";
+
+
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado) {
         $mensaje = 'Consulta invalida: ' . mysqli_error($conexion) . "\n";
         $mensaje .= 'Consulta realizada: ' . $consulta;
         die($mensaje);
-    } else 
-    {
-       $arrayPeli=[];
+    } else {
+        $arrayPeli = [];
         if (($resultado->num_rows) > 0) {
             while ($registro = mysqli_fetch_assoc($resultado)) {
-              
+
                 $peli = new Pelicula(
                     $registro['id'],
                     $registro['titulo'],
@@ -32,101 +47,47 @@ function contenidoPeli()
                     $registro['imagen'],
                     $registro['votos'],
                     $registro['id_categoria']
-              );
-           $arrayPeli[]=$peli;
-            
-                
+                );
+                $arrayPeli[] = $peli;
             }
-            
-        
         } else {
             header('Location: controlErrores.php');
         }
         return $arrayPeli;
     }
-    
-
-    
 }
 function pintarPeli($peliculas)
-    {
-       for ($i=0; $i <count($peliculas) ; $i++) { 
-        $peli=$peliculas[$i];
+{
+    for ($i = 0; $i < count($peliculas); $i++) {
+        $peli = $peliculas[$i];
+
         echo "<div class='individuales'>";
- 
+
 
         echo "<div class='titulo'>" . $peli->titulo . "   </div>";
-      
-        echo "<p class='votos'>Votos: ". $peli->votos."</p> ";
-      
+
+        echo "<p class='votos'>Votos: " . $peli->votos . "</p> ";
+
         echo "<br/>";
-      
+
         echo "<div class='conjuntoImgSinopsis'>";
         echo "<div ><img class='imagen'  src=" . $peli->imagen . ">
                                             </div>";
-      
+
         echo "<br/>";
-      
+
         echo  "<div class='descripcion'>" . $peli->sinopsis . "</div>";
-    
-        echo "</div>";
-        echo "<br/>";
-        echo "<br/>";
-        echo "Duración: ".$peli->duracion." minutos.";
-      
-       echo "<a href='fichaPelicula.php?id=". $peli->id ."&genero=".$peli->id_categoria."' class='fichaGrande'> Ver ficha</a> ";
-      
-        echo "</div>";
-       }
- 
-    }
-function obtenerPeliculasOrdenadas($tipoOrdenacion){
-    require('conexionBD.php');
-    $ordenacion =$_GET['ordenacion'];
-    $sanitized_categoria_id = mysqli_real_escape_string($conexion, $ordenacion);
-    if($tipoOrdenacion=='votos'){
-    $consulta = "SELECT * FROM T_PELICULA  where ordenacion='".$sanitized_categoria_id."'order by votos;";}else{
-        $consulta = "SELECT * FROM T_PELICULA  where ordenacion='".$sanitized_categoria_id."'order by titulo;";
-    }
-  //  $consulta = "SELECT * FROM T_Pelicula  ;";
-  
-   
-    $resultado = mysqli_query($conexion, $consulta);
 
-    if (!$resultado) {
-        $mensaje = 'Consulta invalida: ' . mysqli_error($conexion) . "\n";
-        $mensaje .= 'Consulta realizada: ' . $consulta;
-        die($mensaje);
-    } else 
-    {
-       $arrayPeli=[];
-        if (($resultado->num_rows) > 0) {
-            while ($registro = mysqli_fetch_assoc($resultado)) {
-              
-                $peli = new Pelicula(
-                    $registro['id'],
-                    $registro['titulo'],
-                    $registro['año'],
-                    $registro['duracion'],
-                    $registro['sinopsis'],
-                    $registro['imagen'],
-                    $registro['votos'],
-                    $registro['id_categoria']
-              );
-           $arrayPeli[]=$peli;
-            
-                
-            }
-            
-          
-        } else {
-            echo "No hay resultados";
-        }
-        return $arrayPeli;
+        echo "</div>";
+        echo "<br/>";
+        echo "<br/>";
+        echo "Duración: " . $peli->duracion . " minutos.";
+
+        echo "<a href='fichaPelicula.php?id=" . $peli->id . "&genero=" . $peli->id_categoria . "' class='fichaGrande'> Ver ficha</a> ";
+
+        echo "</div>";
     }
-    
 }
-
 class Pelicula
 {
     public $id;
@@ -149,8 +110,8 @@ class Pelicula
         $this->id_categoria = $id_categoria;
         //contenidoPeli();
     }
-    
-  
+
+
 
     public function getTitulo()
     {

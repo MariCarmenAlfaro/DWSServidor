@@ -4,6 +4,7 @@
 }
 
 .barraNavegacion {
+    
     background-color: rgba(152, 41, 41, 0.644);
     min-height: 10%;
     padding: 10px;
@@ -13,10 +14,10 @@
     text-shadow: 1px 1px white;
 }
 
-.listaNavegacion {
+.listaNavegacion, .orden{
     display: inline;
     text-align: center;
-    margin: 0 50px 0 0;
+    margin: 0 1%;
 }
 .contenedor {
     background-color: black;
@@ -90,7 +91,7 @@
     padding: 16px 32px;
     text-decoration: none;
     margin: 4px 2px;
-    cursor: pointer;
+   
 }
 .votosFicha{
     position: absolute;
@@ -119,20 +120,24 @@
 .inicio:link,
 .inicio:visited,
 .volverFicha:link,
-.volverFicha:visited {
+.volverFicha:visited,
+.orden:link,
+.orden:visited {
     text-decoration: none;
     color: rgb(15, 119, 15);
 }
 
 
 .inicio:hover,
-.volverFicha:hover {
+.volverFicha:hover,
+.orden:hover {
     color: darkred;
     cursor: pointer;
 }
 
 .inicio:active,
-.volverFicha:active {
+.volverFicha:active,
+.orden:active {
     color: red
 }
 
@@ -148,4 +153,7 @@
 .fichaGrande:active {
     color: red
 }
-
+.orden{
+    font-size: medium;
+   
+}

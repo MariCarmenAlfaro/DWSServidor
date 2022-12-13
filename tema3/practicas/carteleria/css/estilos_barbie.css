@@ -14,10 +14,10 @@
 
 }
 
-.listaNavegacion {
+.listaNavegacion, .orden {
     display: inline;
     text-align: center;
-    margin: 0 50px 0 0;
+   margin: 0 1%;
 }
 
 .contenedor {
@@ -123,18 +123,22 @@
 .inicio:link,
 .inicio:visited,
 .volverFicha:link,
-.volverFicha:visited {
+.volverFicha:visited ,
+.orden:link,
+.orden:visited {
     text-decoration: none;
     color: black;
 }
 
 .inicio:hover,
-.volverFicha:hover {
+.volverFicha:hover,
+.orden:hover {
     color: rgb(255, 0, 255);
 }
 
 .inicio:active,
-.volverFicha:active {
+.volverFicha:active,
+.orden:active {
     color: rgb(172, 0, 157)
 }
 
@@ -148,4 +152,8 @@
 .fichaGrande:hover,
 .fichaGrande:active {
     color: rgb(172, 0, 157)
+}
+.orden{
+    font-size: medium;
+   
 }
