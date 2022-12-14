@@ -38,8 +38,7 @@
 
                    $generos = new Categorias(
                        $registro['id'],
-                       $registro['genero'],
-                       $registro['estilo']
+                       $registro['imgTitulo'],
                    );
                    $arrayCategorias[] = $generos;
                }
@@ -56,7 +55,7 @@
        echo "<ul class='listaCategorias'>";
        for ($i = 0; $i < count($arrayCategorias); $i++) {
     
-            echo "<li class='generos'> <a href='peliculas.php?genero=".$arrayCategorias[$i]->id."&estilos=".$arrayCategorias[$i]->estilo.">" . $arrayCategorias[$i]->genero . "</a> </li>";
+            echo "<li class='generos'> <a href='peliculas.php?genero=".$arrayCategorias[$i]->id."'><img src='../" . $arrayCategorias[$i]->imgTitulo . "'></a> </li>";
        }
 
 
@@ -67,13 +66,13 @@
    {
        public $id;
        public $genero;
-       public $estilo;
+     
 
-       function __construct($id, $genero, $estilo)
+       function __construct($id, $genero)
        {
            $this->id = $id;
            $this->genero = $genero;
-           $this->estilo = $estilo;
+
        }
 
 

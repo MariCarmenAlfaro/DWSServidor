@@ -71,8 +71,7 @@ function pintarPeli($peliculas)
         echo "<br/>";
 
         echo "<div class='conjuntoImgSinopsis'>";
-        echo "<div ><img class='imagen'  src=" . $peli->imagen . ">
-                                            </div>";
+        echo "<div ><img class='imagen'  src=" . $peli->imagen . "></div>";
 
         echo "<br/>";
 
@@ -83,7 +82,7 @@ function pintarPeli($peliculas)
         echo "<br/>";
         echo "Duración: " . $peli->duracion . " minutos.";
 
-        echo "<a href='fichaPelicula.php?id=" . $peli->id . "&genero=" . $peli->id_categoria . "' class='fichaGrande'> Ver ficha</a> ";
+        echo "<a href='fichaPelicula.php?id=" . $peli->id . "&genero=" . $peli->id_categoria . "&estilo=' class='fichaGrande'> Ver ficha</a> ";
 
         echo "</div>";
     }

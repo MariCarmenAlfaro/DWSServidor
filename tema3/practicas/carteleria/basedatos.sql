@@ -6,11 +6,12 @@ use carteleria;
 drop table if exists T_CATEGORIA;
 create table T_CATEGORIA(
 id int primary key,
-genero varchar(50)not null);
+genero varchar(50)not null,
+estilo varchar(50)not null);
 
 select * from T_CATEGORIA;
-insert into T_CATEGORIA (id, genero) values(1,"Infantil");
-insert into T_CATEGORIA (id, genero) values(2,"Terror");
+insert into T_CATEGORIA (id, genero, estilo) values(1,"Infantil","estilos_barbie.css");
+insert into T_CATEGORIA (id, genero, estilo) values(2,"Terror","estilos_terror.css");
 
 drop table if exists T_DIRECCION;
 create table T_DIRECCION(
@@ -96,8 +97,9 @@ INSERT INTO T_REPARTO_PELICULA( id_reparto,id_peli) values (1,1),(2,1),(3,1),(4,
 insert into T_DIRECCION_PELICULA(id_direccion,id_peli) values(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),(9,9),(10,10),(11,11),(12,12),
 (13,13),(14,14),(15,15),(16,18),(15,16),(12,17),(13,19),(11,20);
 
-select * from T_PELICULA;
+select * from T_PELICULA order by titulo ;
 select * from T_CATEGORIA;
 select * from T_REPARTO;
 select * from T_DIRECCION;
 select * from T_DIRECCION_PELICULA;
+select * from T_REPARTO_PELICULA;

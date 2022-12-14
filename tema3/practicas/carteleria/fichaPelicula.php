@@ -26,7 +26,7 @@
         <div class="barraNavegacion">
             <?php
 
-            echo "<a href=peliculas.php?genero=" . $_GET['genero'] . " class=volverFicha >Volver</a>";
+            echo "<a href='peliculas.php?genero=" . $_GET['genero'] . "&estilo=".$_GET['estilo']."' class=volverFicha >Volver</a>";
 
 
 
