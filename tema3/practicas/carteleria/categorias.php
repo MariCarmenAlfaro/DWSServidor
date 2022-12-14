@@ -21,8 +21,7 @@
    function obtenerCategorias()
    {
        require('conexionBD.php');
-       //$id_categoria = $_GET['categoria'];
-       // $sanitized_categoria_id = mysqli_real_escape_string($conexion);
+    
    
        $consulta = "select * from T_CATEGORIA;";
 
@@ -40,6 +39,7 @@
                    $generos = new Categorias(
                        $registro['id'],
                        $registro['genero'],
+                       $registro['estilo']
                    );
                    $arrayCategorias[] = $generos;
                }
@@ -56,7 +56,7 @@
        echo "<ul class='listaCategorias'>";
        for ($i = 0; $i < count($arrayCategorias); $i++) {
     
-            echo "<li class='generos'> <a href='peliculas.php?genero=".$arrayCategorias[$i]->id."'>" . $arrayCategorias[$i]->genero . "</a> </li>";
+            echo "<li class='generos'> <a href='peliculas.php?genero=".$arrayCategorias[$i]->id."&estilos=".$arrayCategorias[$i]->estilo.">" . $arrayCategorias[$i]->genero . "</a> </li>";
        }
 
 
@@ -67,12 +67,13 @@
    {
        public $id;
        public $genero;
+       public $estilo;
 
-       function __construct($id, $genero)
+       function __construct($id, $genero, $estilo)
        {
            $this->id = $id;
            $this->genero = $genero;
-
+           $this->estilo = $estilo;
        }
 
 

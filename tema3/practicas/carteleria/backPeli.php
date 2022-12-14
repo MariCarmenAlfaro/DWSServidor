@@ -1,3 +1,5 @@
+
+
 <?php
 
 pintarPeli(contenidoPeli());
@@ -30,9 +32,7 @@ function contenidoPeli()
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado) {
-        $mensaje = 'Consulta invalida: ' . mysqli_error($conexion) . "\n";
-        $mensaje .= 'Consulta realizada: ' . $consulta;
-        die($mensaje);
+        header('Location: controlErrores.php');
     } else {
         $arrayPeli = [];
         if (($resultado->num_rows) > 0) {
@@ -108,7 +108,7 @@ class Pelicula
         $this->imagen = $imagen;
         $this->votos = $votos;
         $this->id_categoria = $id_categoria;
-        //contenidoPeli();
+        
     }
 
 
