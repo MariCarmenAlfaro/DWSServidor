@@ -3,7 +3,7 @@
     padding: 0px;
 }
 
-.barraNavegacion {
+.barraNavegacion, .filtros {
     background-color: rgba(255, 209, 240, 0.845);
     min-height: 10%;
     padding: 10px;
@@ -14,10 +14,10 @@
 
 }
 
-.listaNavegacion, .orden {
+.listaNavegacion{
     display: inline;
     text-align: center;
-   margin: 0 1%;
+    margin: 0 1%;
 }
 
 .contenedor {
@@ -31,7 +31,7 @@
 .cuerpo {
     margin: auto;
     background-color: rgb(255, 153, 209);
-    width: 70%;
+    width: 60%;
     padding: 5px;
 }
 
@@ -43,8 +43,26 @@
     padding: 5px;
     margin: 20px 8px;
     position: relative;
+    font-size: x-large;
 }
 
+.infoExtraFicha {
+    font-size: xx-large;
+    font-weight: 900;
+    display: block;
+}
+.filtros {
+    list-style: none;
+    width: 12%;
+    margin: 1%;
+    font-size: x-large;
+  float: right;
+  text-align: center;
+  
+}
+li {
+    margin: 5%;
+}
 .conjuntoImgSinopsis {
     width: 100%;
     overflow: auto;
@@ -64,10 +82,15 @@
     margin: 0px 10px;
 }
 
+.duracionPeli {
+    font-weight: 600;
+}
+
 .votos {
     position: absolute;
     right: 10%;
     top: 10%;
+    font-weight: 600;
 }
 
 .piePag {
@@ -90,6 +113,8 @@
     top: 3%;
     font-size: medium;
     background-color: rgb(255, 153, 209);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
     border: none;
     color: white;
     padding: 16px 32px;
@@ -123,7 +148,7 @@
 .inicio:link,
 .inicio:visited,
 .volverFicha:link,
-.volverFicha:visited ,
+.volverFicha:visited,
 .orden:link,
 .orden:visited {
     text-decoration: none;
@@ -147,13 +172,11 @@
     position: absolute;
     right: 10%;
     color: rgb(255, 0, 255);
+    font-weight: 600;
 }
 
 .fichaGrande:hover,
 .fichaGrande:active {
     color: rgb(172, 0, 157)
 }
-.orden{
-    font-size: medium;
-   
-}
+

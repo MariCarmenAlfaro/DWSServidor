@@ -108,7 +108,7 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
 
                         pintarPeli($peliReparto, $arrayReparto);
                     } else {
-                       // header('Location: controlErrores.php');
+                        header('Location: controlErrores.php');
                     }
                 }
             }
@@ -133,14 +133,14 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
 
                 echo "<br/>";
                 echo "<br/>";
-                echo "Duración: " . $peli->duracion . " minutos.";
+                echo "Duración: <span class='infoExtraFicha'>&nbsp;" . $peli->duracion . " minutos.</span> ";
                 echo "<br/>";
-                echo "<br/>";
-                echo  "<div class='director'>Director/a: " . $peli->nombreDireccion . "</div>";
+                
+                echo  "<div class='director'>Director/a: <span class='infoExtraFicha'> &nbsp; " . $peli->nombreDireccion . "</span></div>";
 
                 echo "<br/>";
-                echo "Reparto: ";
-                for ($i = 0; $i < count($arrayReparto); $i++) {
+                echo "Reparto: <span class='infoExtraFicha'>  &nbsp;  ";
+                for ($i = 0; $i <count($arrayReparto); $i++) {
                  
                     if(count($arrayReparto)==$i+1){
                     echo $arrayReparto[$i];
@@ -148,7 +148,7 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
                         echo $arrayReparto[$i]. " - ";
                     }
                 }
-               
+               echo "</span>";
                 echo "<br/>";
                 echo "</div>";
             }

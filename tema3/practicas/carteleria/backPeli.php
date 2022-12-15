@@ -58,7 +58,7 @@ function contenidoPeli()
 }
 function pintarPeli($peliculas)
 {
-    for ($i = 0; $i < count($peliculas); $i++) {
+    for ($i = 0; $i <count($peliculas); $i++) {
         $peli = $peliculas[$i];
 
         echo "<div class='individuales'>";
@@ -80,7 +80,7 @@ function pintarPeli($peliculas)
         echo "</div>";
         echo "<br/>";
         echo "<br/>";
-        echo "Duración: " . $peli->duracion . " minutos.";
+        echo "Duración: <span class='duracionPeli'>" . $peli->duracion . " minutos.</span>";
 
         echo "<a href='fichaPelicula.php?id=" . $peli->id . "&genero=" . $peli->id_categoria . "&estilo=' class='fichaGrande'> Ver ficha</a> ";
 

@@ -3,7 +3,7 @@
     padding: 0px;
 }
 
-.barraNavegacion {
+.barraNavegacion, .filtros{
     
     background-color: rgba(152, 41, 41, 0.644);
     min-height: 10%;
@@ -14,7 +14,7 @@
     text-shadow: 1px 1px white;
 }
 
-.listaNavegacion, .orden{
+.listaNavegacion{
     display: inline;
     text-align: center;
     margin: 0 1%;
@@ -43,7 +43,24 @@
     padding: 5px;
     margin: 20px 8px;
   position: relative;
-
+  font-size: x-large;
+}
+.infoExtraFicha{
+    font-size: xx-large;
+    font-weight: 900;
+    display: block;
+}
+.filtros {
+    list-style: none;
+    width: 12%;
+    margin: 1%;
+    font-size: x-large;
+  float: right;
+  text-align: center;
+  
+}
+li {
+    margin: 5%;
 }
 .conjuntoImgSinopsis{
     width: 100%;
@@ -91,7 +108,7 @@
     padding: 16px 32px;
     text-decoration: none;
     margin: 4px 2px;
-   
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .votosFicha{
     position: absolute;
@@ -153,7 +170,4 @@
 .fichaGrande:active {
     color: red
 }
-.orden{
-    font-size: medium;
-   
-}
+

@@ -16,8 +16,9 @@
    width: 20%;
    margin: 0.5%;
    background-color: rgba(250, 200, 200, 0.507);
-  
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
 
 body {
    background-image: url(../imgs/sala-de-cine.webp);
@@ -61,7 +62,7 @@ a {
 
 a:link {
    color: black;
-   text-shadow: 1px 1px white;
+   text-shadow: 2px 2px white;
 }
 
 a:visited {
