@@ -7,11 +7,12 @@ drop table if exists T_CATEGORIA;
 create table T_CATEGORIA(
 id int primary key,
 genero varchar(50)not null,
+imgTitulo varchar(100)not null,
 estilo varchar(50)not null);
 
 select * from T_CATEGORIA;
-insert into T_CATEGORIA (id, genero, estilo) values(1,"Infantil","estilos_barbie.css");
-insert into T_CATEGORIA (id, genero, estilo) values(2,"Terror","estilos_terror.css");
+insert into T_CATEGORIA (id, genero,imgTitulo, estilo) values(1,"Infantil","imgs/fondoBarbie.png","estilos_barbie.css");
+insert into T_CATEGORIA (id, genero, imgTitulo,estilo) values(2,"Terror","imgs/fondoTerror.png","estilos_terror.css");
 
 drop table if exists T_DIRECCION;
 create table T_DIRECCION(

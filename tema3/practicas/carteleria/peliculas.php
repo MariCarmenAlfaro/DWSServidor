@@ -9,18 +9,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Sevillana&display=swap" rel="stylesheet">
-
+    <title>Peliculas</title>
     <?php
+//TODO llamar bd
+require('conexionBD.php');
+$id_categoria = $_GET['genero'];
 
-    if ($_GET["genero"] === "2") {
-        echo  "<link rel=stylesheet href=css/estilos_terror.css>";
-        echo "  <title>Terror</title>";
-    } elseif ($_GET["genero"] === "1") {
-        echo "<link rel=stylesheet href=css/estilos_barbie.css>";
-        echo "  <title>Infantil</title>";
+$sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
+
+$consulta = "SELECT estilo FROM T_CATEGORIA  where id=" . $sanitized_categoria_id .";";
+
+$resultado = mysqli_query($conexion, $consulta);
+$estilos;
+if (!$resultado) {
+    header('Location: controlErrores.php');
+} else {
+   
+    if (($resultado->num_rows) > 0) {
+        while ($registro = mysqli_fetch_assoc($resultado)) {
+               $estilos= $registro['estilo']; 
+        }
     } else {
-        header('categorias.php');
+        header('Location: controlErrores.php');
     }
+}
+echo "<link rel=stylesheet href=css/".$estilos.">";
     ?>
 
 

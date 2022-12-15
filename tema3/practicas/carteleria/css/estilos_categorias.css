@@ -4,6 +4,22 @@
 
 }
 
+.imgTitulo{
+   width:  7%;
+ 
+ 
+}
+.categorias{
+   position: relative;
+   display: inline-block;
+   text-align: center;
+   width: 50%;
+}
+.nombreCat{
+   position: absolute;
+   top: 40%;
+   left: 44%;
+}
 body {
    background-image: url(../imgs/sala-de-cine.webp);
    background-size: cover;

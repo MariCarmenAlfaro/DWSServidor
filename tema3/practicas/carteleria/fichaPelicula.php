@@ -10,14 +10,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Sevillana&display=swap" rel="stylesheet">
 
     <?php
-    
-    if ($_GET["genero"] === "2") {
-        echo  "<link rel=stylesheet href=css/estilos_terror.css>";
-    } elseif ($_GET["genero"] === "1") {
-        echo "<link rel=stylesheet href=css/estilos_barbie.css>";
+//TODO llamar bd
+require('conexionBD.php');
+$id_categoria = $_GET['genero'];
+
+$sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
+
+$consulta = "SELECT estilo FROM T_CATEGORIA  where id=" . $sanitized_categoria_id .";";
+
+$resultado = mysqli_query($conexion, $consulta);
+$estilos;
+if (!$resultado) {
+    header('Location: controlErrores.php');
+} else {
+   
+    if (($resultado->num_rows) > 0) {
+        while ($registro = mysqli_fetch_assoc($resultado)) {
+               $estilos= $registro['estilo']; 
+        }
     } else {
         header('Location: controlErrores.php');
     }
+}
+echo "<link rel=stylesheet href=css/".$estilos.">";
     ?>
 </head>
 
@@ -54,9 +69,6 @@
                 $sanitized_peli_id = mysqli_real_escape_string($conexion, $id_peli);
                 $consulta = "select * from T_REPARTO left join T_REPARTO_PELICULA on id_reparto= idReparto left join T_PELICULA on id= id_peli 
                 left join T_DIRECCION_PELICULA on id= id_direccion left join T_DIRECCION on id_direccion=idDireccion where T_DIRECCION_PELICULA.id_peli=" . $sanitized_peli_id . ";";
-
-                //  $consulta = "SELECT * FROM T_Pelicula  ;";
-
 
                 $resultado = mysqli_query($conexion, $consulta);
 
