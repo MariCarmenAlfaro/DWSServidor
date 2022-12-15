@@ -11,7 +11,8 @@ function contenidoPeli()
     $ordenacion = $_GET['ordenacion'];
     $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
     $sanitized_ordenacion = mysqli_real_escape_string($conexion, $ordenacion);
-    switch ($sanitized_ordenacion) {
+   
+        switch ($sanitized_ordenacion) {
         case 1:
             $tipoOrden = "order by votos";
             break;
@@ -24,10 +25,9 @@ function contenidoPeli()
         case 4:
             $tipoOrden = "order by titulo desc ";
             break;
-    }
+        }
+    
     $consulta = "SELECT * FROM T_PELICULA  where id_categoria=" . $sanitized_categoria_id . " ".$tipoOrden.";";
-    //  $consulta = "SELECT * FROM T_Pelicula  ;";
-
 
     $resultado = mysqli_query($conexion, $consulta);
 

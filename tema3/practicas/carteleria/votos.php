@@ -20,7 +20,7 @@ require('conexionBD.php');
 $id_peli = $_POST['idPelicula'];
 
 $sanitized_peli_id = mysqli_real_escape_string($conexion, $id_peli);
-$consulta = "update T_PELICULA set voto = votos+1 where id=". $sanitized_peli_id . ";";
+$consulta = "update T_PELICULA set votos = votos+1 where id=". $sanitized_peli_id . ";";
 
 //  $consulta = "SELECT * FROM T_Pelicula  ;";
 
@@ -28,10 +28,8 @@ $consulta = "update T_PELICULA set voto = votos+1 where id=". $sanitized_peli_id
 $resultado = mysqli_query($conexion, $consulta);
 
 if (!$resultado) {
-    echo "No se ha podido realizar el voto";
-    $mensaje = 'Consulta invalida: ' . mysqli_error($conexion) . "\n";
-    $mensaje .= 'Consulta realizada: ' . $consulta;
-    die($mensaje);
+    header('Location: controlErrores.php');
+
 } else {
     
    

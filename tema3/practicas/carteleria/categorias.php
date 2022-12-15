@@ -28,9 +28,11 @@
        $resultado = mysqli_query($conexion, $consulta);
 
        if (!$resultado) {
-           $mensaje = 'Consulta invalida: ' . mysqli_error($conexion) . "\n";
+        header('Location: controlErrores.php');
+
+          /* $mensaje = 'Consulta invalida: ' . mysqli_error($conexion) . "\n";
            $mensaje .= 'Consulta realizada: ' . $consulta;
-           die($mensaje);
+           die($mensaje);*/
        } else {
            $arrayCategorias = [];
            if (($resultado->num_rows) > 0) {
@@ -56,7 +58,7 @@
        echo "<ul class='listaCategorias'>";
        for ($i = 0; $i < count($arrayCategorias); $i++) {
     
-            echo "<li class='generos'> <a href='peliculas.php?genero=".$arrayCategorias[$i]->id."'>
+            echo "<li class='generos'> <a href='peliculas.php?genero=".$arrayCategorias[$i]->id."&ordenacion=3'>
             <div class='categorias'> <div class='nombreCat'>".$arrayCategorias[$i]->genero."</div><img class='imgTitulo' 
             src=" . $arrayCategorias[$i]->imgTitulo . "></div></a></li>";
        }

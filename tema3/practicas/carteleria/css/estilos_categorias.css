@@ -5,21 +5,20 @@
 }
 
 .imgTitulo{
-   width:  7%;
+   width: 25%;
  
  
 }
 .categorias{
-   position: relative;
+   border: 1px dotted black;
    display: inline-block;
    text-align: center;
-   width: 50%;
+   width: 20%;
+   margin: 0.5%;
+   background-color: rgba(250, 200, 200, 0.507);
+  
 }
-.nombreCat{
-   position: absolute;
-   top: 40%;
-   left: 44%;
-}
+
 body {
    background-image: url(../imgs/sala-de-cine.webp);
    background-size: cover;
@@ -34,6 +33,7 @@ h1 {
    margin: 2% 0;
    padding: 1.5%;
    background-color: rgba(250, 200, 200, 0.799);
+   text-shadow: 1px 1px white;
    text-align: center;
 }
 
@@ -61,6 +61,7 @@ a {
 
 a:link {
    color: black;
+   text-shadow: 1px 1px white;
 }
 
 a:visited {
