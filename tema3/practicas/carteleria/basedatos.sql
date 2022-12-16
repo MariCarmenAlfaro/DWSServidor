@@ -7,13 +7,15 @@ drop table if exists T_CATEGORIA;
 create table T_CATEGORIA(
 id int primary key,
 genero varchar(50)not null,
-imgTitulo varchar(100)not null,
+imgTitulo varchar(100),
 estilo varchar(50)not null);
 
 select * from T_CATEGORIA;
+
 insert into T_CATEGORIA (id, genero,imgTitulo, estilo) values(1,"Infantil","imgs/fondoBarbie.png","estilos_barbie.css");
 insert into T_CATEGORIA (id, genero, imgTitulo,estilo) values(2,"Terror","imgs/fondoTerror.png","estilos_terror.css");
-
+insert into T_CATEGORIA (id, genero, estilo) values(4,"Ficción","estilos_ficcion.css");
+insert into T_CATEGORIA (id, genero,estilo) values(5,"Suspense","estilos_suspense.css");
 drop table if exists T_DIRECCION;
 create table T_DIRECCION(
 idDireccion int primary key auto_increment,
@@ -99,8 +101,11 @@ insert into T_DIRECCION_PELICULA(id_direccion,id_peli) values(1,1),(2,2),(3,3),(
 (13,13),(14,14),(15,15),(16,18),(15,16),(12,17),(13,19),(11,20);
 
 select * from T_PELICULA order by titulo ;
-select * from T_CATEGORIA;
+select id,genero, imgTitulo from T_CATEGORIA;
 select * from T_REPARTO;
 select * from T_DIRECCION;
 select * from T_DIRECCION_PELICULA;
 select * from T_REPARTO_PELICULA;
+select idReparto, nombreReparto, id_reparto, T_DIRECCION_PELICULA.id_peli, id, titulo, año, duracion, sinopsis,imagen, votos, id_categoria, id_direccion, T_REPARTO_PELICULA.id_peli,idDireccion, nombreDireccion from T_REPARTO left join T_REPARTO_PELICULA on id_reparto= idReparto left join T_PELICULA on id= id_peli 
+                left join T_DIRECCION_PELICULA on id= id_direccion left join T_DIRECCION on id_direccion=idDireccion where T_DIRECCION_PELICULA.id_peli=5;
+SELECT id, titulo, año, duracion,sinopsis,imagen, votos, id_categoria FROM T_PELICULA  where id_categoria=2;

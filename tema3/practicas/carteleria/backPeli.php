@@ -1,5 +1,3 @@
-
-
 <?php
 
 pintarPeli(contenidoPeli());
@@ -27,7 +25,7 @@ function contenidoPeli()
             break;
         }
     
-    $consulta = "SELECT * FROM T_PELICULA  where id_categoria=" . $sanitized_categoria_id . " ".$tipoOrden.";";
+    $consulta = "SELECT id, titulo, año, duracion,sinopsis,imagen, votos, id_categoria FROM T_PELICULA  where id_categoria=" . $sanitized_categoria_id . " ".$tipoOrden.";";
 
     $resultado = mysqli_query($conexion, $consulta);
 
@@ -64,25 +62,25 @@ function pintarPeli($peliculas)
         echo "<div class='individuales'>";
 
 
-        echo "<div class='titulo'>" . $peli->titulo . "   </div>";
+            echo "<div class='titulo'>" . $peli->titulo . "   </div>";
 
-        echo "<p class='votos'>Votos: " . $peli->votos . "</p> ";
+             echo "<p class='votos'>Votos: " . $peli->votos . "</p> ";
 
-        echo "<br/>";
+             echo "<br/>";
 
-        echo "<div class='conjuntoImgSinopsis'>";
-        echo "<div ><img class='imagen'  src=" . $peli->imagen . "></div>";
+             echo "<div class='conjuntoImgSinopsis'>";
+                     echo "<div ><img class='imagen'  src=" . $peli->imagen . "></div>";
 
-        echo "<br/>";
+                     echo "<br/>";
 
-        echo  "<div class='descripcion'>" . $peli->sinopsis . "</div>";
+                     echo  "<div class='descripcion'>" . $peli->sinopsis . "</div>";
 
-        echo "</div>";
-        echo "<br/>";
-        echo "<br/>";
-        echo "Duración: <span class='duracionPeli'>" . $peli->duracion . " minutos.</span>";
+             echo "</div>";
+                  echo "<br/>";
+                    echo "<br/>";
+             echo "Duración: <span class='duracionPeli'>" . $peli->duracion . " minutos.</span>";
 
-        echo "<a href='fichaPelicula.php?id=" . $peli->id . "&genero=" . $peli->id_categoria . "&estilo=' class='fichaGrande'> Ver ficha</a> ";
+         echo "<a href='fichaPelicula.php?id=" . $peli->id . "&genero=" . $peli->id_categoria . "' class='fichaGrande'> Ver ficha</a> ";
 
         echo "</div>";
     }
@@ -110,38 +108,4 @@ class Pelicula
         
     }
 
-
-
-    public function getTitulo()
-    {
-        return $this->titulo;
-    }
-    public function setTitulo($titulo)
-    {
-        return $this->titulo;
-    }
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-    public function setImagen($imagen)
-    {
-        return $this->titulo;
-    }
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
-    public function setDescripcion($descripcion)
-    {
-        return $this->descripcion;
-    }
-    public function getIdCategoria()
-    {
-        return $this->IdCategoria;
-    }
-    public function setIdCategoria($idCategoria)
-    {
-        return $this->idCategoria;
-    }
 }

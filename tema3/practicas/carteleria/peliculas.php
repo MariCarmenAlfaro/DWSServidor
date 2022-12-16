@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Sevillana&display=swap" rel="stylesheet">
     <title>Peliculas</title>
     <?php
-    //TODO llamar bd
     require('conexionBD.php');
-    $id_categoria = $_GET['genero'];
 
+    $id_categoria = $_GET['genero'];
+    if (empty($id_categoria)) {
+        header('Location: controlErrores.php');
+    }
     $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
 
     $consulta = "SELECT estilo FROM T_CATEGORIA  where id=" . $sanitized_categoria_id . ";";
@@ -70,16 +70,8 @@
             <?php
 
             require('backPeli.php');
-            /*
-mirar css ficha
-mirar si borro cosas de la url no pete
-*/
+
             ?>
-
-
-
-
-
 
         </div>
         <div class="piePag">CopyRight</div>

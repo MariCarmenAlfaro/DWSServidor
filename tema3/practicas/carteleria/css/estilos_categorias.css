@@ -30,19 +30,19 @@ body {
    font-family: 'Allerta Stencil', sans-serif;
 }
 
-h1 {
+.titulo {
    margin: 2% 0;
    padding: 1.5%;
    background-color: rgba(250, 200, 200, 0.799);
-   text-shadow: 1px 1px white;
+   text-shadow: 2px 2px white;
    text-align: center;
+   font-size: 250%;
 }
 
 .contenedorLista {
    float: left;
    width: 100%;
    text-align: center;
-
 
 }
 
@@ -52,27 +52,24 @@ h1 {
 
 }
 
-
-a {
-
+.generos{
    text-decoration: none;
-   margin-bottom: 50px;
-
+   margin-bottom: 1%;
 }
 
-a:link {
+.generos:link {
    color: black;
    text-shadow: 2px 2px white;
 }
 
-a:visited {
+.generos:visited {
    color: black;
 }
 
-a:hover {
+.generos:hover {
    color: darkred;
 }
 
-a:active {
+.generos:active {
    color: firebrick
 }

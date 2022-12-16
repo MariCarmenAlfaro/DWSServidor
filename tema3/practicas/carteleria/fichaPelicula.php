@@ -10,29 +10,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Sevillana&display=swap" rel="stylesheet">
 
     <?php
-//TODO llamar bd
-require('conexionBD.php');
-$id_categoria = $_GET['genero'];
-
-$sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
-
-$consulta = "SELECT estilo FROM T_CATEGORIA  where id=" . $sanitized_categoria_id .";";
-
-$resultado = mysqli_query($conexion, $consulta);
-$estilos;
-if (!$resultado) {
-    header('Location: controlErrores.php');
-} else {
-   
-    if (($resultado->num_rows) > 0) {
-        while ($registro = mysqli_fetch_assoc($resultado)) {
-               $estilos= $registro['estilo']; 
-        }
-    } else {
+    //TODO llamar bd
+    require('conexionBD.php');
+    $id_categoria = $_GET['genero'];
+    if (empty($id_categoria)) {
         header('Location: controlErrores.php');
     }
-}
-echo "<link rel=stylesheet href=css/".$estilos.">";
+    $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
+
+    $consulta = "SELECT estilo FROM T_CATEGORIA  where id=" . $sanitized_categoria_id . ";";
+
+    $resultado = mysqli_query($conexion, $consulta);
+    $estilos;
+    if (!$resultado) {
+        header('Location: controlErrores.php');
+    } else {
+
+        if (($resultado->num_rows) > 0) {
+            while ($registro = mysqli_fetch_assoc($resultado)) {
+                $estilos = $registro['estilo'];
+            }
+        } else {
+            header('Location: controlErrores.php');
+        }
+    }
+    echo "<link rel=stylesheet href=css/" . $estilos . ">";
     ?>
 </head>
 
@@ -41,7 +43,7 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
         <div class="barraNavegacion">
             <?php
 
-            echo "<a href='peliculas.php?genero=" . $_GET['genero'] . "&estilo=".$_GET['estilo']."' class=volverFicha >Volver</a>";
+            echo "<a href='peliculas.php?genero=" . $_GET['genero'] ."' class=volverFicha >Volver</a>";
 
 
 
@@ -65,10 +67,12 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
                 require('conexionBD.php');
 
                 $id_peli = $_GET['id'];
-
+                if (empty($id_peli)) {
+                    header('Location: controlErrores.php');
+                }
                 $sanitized_peli_id = mysqli_real_escape_string($conexion, $id_peli);
-                $consulta = "select * from T_REPARTO left join T_REPARTO_PELICULA on id_reparto= idReparto left join T_PELICULA on id= id_peli 
-                left join T_DIRECCION_PELICULA on id= id_direccion left join T_DIRECCION on id_direccion=idDireccion where T_DIRECCION_PELICULA.id_peli=" . $sanitized_peli_id . ";";
+                $consulta = "select idReparto, nombreReparto, id_reparto, T_DIRECCION_PELICULA.id_peli, id, titulo, año, duracion, sinopsis,imagen, votos, id_categoria, id_direccion, T_REPARTO_PELICULA.id_peli,idDireccion, nombreDireccion from T_REPARTO left join T_REPARTO_PELICULA on id_reparto= idReparto left join T_PELICULA on id= id_peli 
+                left join T_DIRECCION_PELICULA on id= id_direccion left join T_DIRECCION on id_direccion=idDireccion where T_DIRECCION_PELICULA.id_peli" . $sanitized_peli_id . ";";
 
                 $resultado = mysqli_query($conexion, $consulta);
 
@@ -135,20 +139,20 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
                 echo "<br/>";
                 echo "Duración: <span class='infoExtraFicha'>&nbsp;" . $peli->duracion . " minutos.</span> ";
                 echo "<br/>";
-                
+
                 echo  "<div class='director'>Director/a: <span class='infoExtraFicha'> &nbsp; " . $peli->nombreDireccion . "</span></div>";
 
                 echo "<br/>";
                 echo "Reparto: <span class='infoExtraFicha'>  &nbsp;  ";
-                for ($i = 0; $i <count($arrayReparto); $i++) {
-                 
-                    if(count($arrayReparto)==$i+1){
-                    echo $arrayReparto[$i];
-                    }else{
-                        echo $arrayReparto[$i]. " - ";
+                for ($i = 0; $i < count($arrayReparto); $i++) {
+
+                    if (count($arrayReparto) == $i + 1) {
+                        echo $arrayReparto[$i];
+                    } else {
+                        echo $arrayReparto[$i] . " - ";
                     }
                 }
-               echo "</span>";
+                echo "</span>";
                 echo "<br/>";
                 echo "</div>";
             }
@@ -202,34 +206,6 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
                     $this->id_direccion = $id_direcccion;
                     $this->idDireccion = $idDireccion;
                     $this->nombreDireccion = $nombreDireccion;
-                    //contenidoPeli();
-                }
-
-
-
-                public function getTitulo()
-                {
-                    return $this->titulo;
-                }
-                public function setTitulo($titulo)
-                {
-                    return $this->titulo;
-                }
-                public function getImagen()
-                {
-                    return $this->imagen;
-                }
-                public function setImagen($imagen)
-                {
-                    return $this->titulo;
-                }
-                public function getDescripcion()
-                {
-                    return $this->descripcion;
-                }
-                public function setDescripcion($descripcion)
-                {
-                    return $this->descripcion;
                 }
             }
             ?>
@@ -238,7 +214,7 @@ echo "<link rel=stylesheet href=css/".$estilos.">";
 
 
         </div>
-       
+
     </div>
 </body>
 
