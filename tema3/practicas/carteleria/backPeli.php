@@ -1,5 +1,8 @@
-<?php
 
+
+<?php
+     ini_set('display_errors', 'On');
+     ini_set('html_errors', 0);
 pintarPeli(contenidoPeli());
 
 function contenidoPeli()
@@ -23,6 +26,8 @@ function contenidoPeli()
         case 4:
             $tipoOrden = "order by titulo desc ";
             break;
+        default:
+            $tipoOrden = '';
         }
     
     $consulta = "SELECT id, titulo, año, duracion,sinopsis,imagen, votos, id_categoria FROM T_PELICULA  where id_categoria=" . $sanitized_categoria_id . " ".$tipoOrden.";";

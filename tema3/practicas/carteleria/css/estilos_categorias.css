@@ -30,7 +30,7 @@ body {
    font-family: 'Allerta Stencil', sans-serif;
 }
 
-.titulo {
+.titulo, h1{
    margin: 2% 0;
    padding: 1.5%;
    background-color: rgba(250, 200, 200, 0.799);
@@ -52,24 +52,24 @@ body {
 
 }
 
-.generos{
+.generos, a{
    text-decoration: none;
    margin-bottom: 1%;
 }
 
-.generos:link {
+.generos:link,a:link {
    color: black;
    text-shadow: 2px 2px white;
 }
 
-.generos:visited {
+.generos:visited,a:visited {
    color: black;
 }
 
-.generos:hover {
+.generos:hover, a:hover {
    color: darkred;
 }
 
-.generos:active {
+.generos:active,a:active {
    color: firebrick
 }

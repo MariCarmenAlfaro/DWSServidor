@@ -167,7 +167,8 @@ li {
 .fichaGrande:link,
 .fichaGrande:visited {
     position: absolute;
-    right: 10%;
+    right: 7%;
+    bottom: 5%;
     color: rgb(255, 0, 255);
     font-weight: 600;
 }

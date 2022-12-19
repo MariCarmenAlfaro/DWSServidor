@@ -54,6 +54,7 @@
 
         </div>
         <?php
+     
         echo "<div class='filtros'>";
         echo "<h2>Filtros</h2>";
         echo  " <li><a href='peliculas.php?genero=" . $_GET['genero'] . "&ordenacion=1' class='orden'>Votos ascendentes</a></li>";
@@ -74,7 +75,8 @@
             ?>
 
         </div>
-        <div class="piePag">CopyRight</div>
+        <div class="piePag">© 2022 | Ésta una página de recomendación de películas, y es un medio totalmente independiente cuya principal prioridad es la privacidad y seguridad de los datos de sus usuarios.
+        <br> All Rights Reserved - Todos los derechos reservados</div>
     </div>
 </body>
 

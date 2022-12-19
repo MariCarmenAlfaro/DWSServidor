@@ -43,9 +43,9 @@
         <div class="barraNavegacion">
             <?php
 
-            echo "<a href='peliculas.php?genero=" . $_GET['genero'] ."' class=volverFicha >Volver</a>";
+            echo "<a href='peliculas.php?genero=" . $_GET['genero'] ."&ordenacion=3' class=volverFicha >Volver</a>";
 
-
+        
 
             echo "<form action= 'votos.php?' method='post'>
                     <input id='idPelicula' name='idPelicula' value=" . $_GET['id'] . " style='display:none'>
@@ -60,7 +60,8 @@
 
 
             <?php
-
+     ini_set('display_errors', 'On');
+     ini_set('html_errors', 0);
             contenidoPeli();
             function contenidoPeli()
             {
@@ -71,8 +72,35 @@
                     header('Location: controlErrores.php');
                 }
                 $sanitized_peli_id = mysqli_real_escape_string($conexion, $id_peli);
-                $consulta = "select idReparto, nombreReparto, id_reparto, T_DIRECCION_PELICULA.id_peli, id, titulo, año, duracion, sinopsis,imagen, votos, id_categoria, id_direccion, T_REPARTO_PELICULA.id_peli,idDireccion, nombreDireccion from T_REPARTO left join T_REPARTO_PELICULA on id_reparto= idReparto left join T_PELICULA on id= id_peli 
-                left join T_DIRECCION_PELICULA on id= id_direccion left join T_DIRECCION on id_direccion=idDireccion where T_DIRECCION_PELICULA.id_peli" . $sanitized_peli_id . ";";
+                $consulta = "SELECT 
+                idReparto,
+                nombreReparto,
+                id_reparto,
+                T_DIRECCION_PELICULA.id_peli,
+                id,
+                titulo,
+                año,
+                duracion,
+                sinopsis,
+                imagen,
+                votos,
+                id_categoria,
+                id_direccion,
+                T_REPARTO_PELICULA.id_peli,
+                idDireccion,
+                nombreDireccion
+            FROM
+                T_REPARTO
+                    LEFT JOIN
+                T_REPARTO_PELICULA ON id_reparto = idReparto
+                    LEFT JOIN
+                T_PELICULA ON id = id_peli
+                    LEFT JOIN
+                T_DIRECCION_PELICULA ON id = id_direccion
+                    LEFT JOIN
+                T_DIRECCION ON id_direccion = idDireccion
+            WHERE
+                T_DIRECCION_PELICULA.id_peli = ".$sanitized_peli_id.";";
 
                 $resultado = mysqli_query($conexion, $consulta);
 
