@@ -91,6 +91,8 @@ li {
     min-height: 10%;
     padding: 10px;
     text-align: center;
+    font-family: 'Metal Mania', cursive;
+    text-shadow: 1px 1px white;
 }
 .contenedorFicha {
     width: 100%;
