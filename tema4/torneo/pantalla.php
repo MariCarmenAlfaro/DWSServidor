@@ -16,51 +16,53 @@
 
 
         <div class="columnas">
-            Cuartos
+            <h3>Cuartos</h3>
+
             <div class="cuartos">
-                <div class="jugadorCuarto">Prueba</div>
-                <div class="jugadorCuarto">Prueba</div>
-                <div class="jugadorCuarto">Prueba</div>
-                <div class="jugadorCuarto">Prueba</div>
-                <div class="jugadorCuarto">Prueba</div>
-                <div class="jugadorCuarto">Prueba</div>
-                <div class="jugadorCuarto">Prueba</div>
-                <div class="jugadorCuarto">Prueba</div>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+
             </div>
         </div>
-
-
-
-
-
         <div class="columnas">
-            Semifinal
+            <h3>Semifinal</h3>
+
             <div class="semifinal">
-                <div class="jugadorSemi">Prueba</div>
-                <div class="jugadorSemi">Prueba</div>
-                <div class="jugadorSemi">Prueba</div>
-                <div class="jugadorSemi">Prueba</div>
+                <a href=""><div class="jugadorSemi">Prueba</div></a>
+                <a href=""><div class="jugadorSemi">Prueba</div></a>
+                <a href=""><div class="jugadorSemi">Prueba</div></a>
+                <a href=""><div class="jugadorSemi">Prueba</div></a>
+
+         
             </div>
         </div>
 
 
         <div class="columnas">
-            Final
-        <div class="final">
-                <div class="jugadorFinal">Prueba</div>
-                <div class="jugadorFinal">Prueba</div>
-                <div class="jugadorFinal">Prueba</div>
-                <div class="jugadorFinal">Prueba</div>
+            <h3>Final</h3>
+
+            <div class="final">
+                <a href=""><div class="jugadorFinal">Prueba</div></a>
+                <a href=""><div class="jugadorFinal">Prueba</div></a>
             </div>
         </div>
 
 
         <div class="columnas">
-            Campeón
-            <div class="campeon">Prueba</div>
+            <h3>
+             <div class="titulo">Campeón</div>
+            </h3>
+
+             <a href="">  <div class="campeon">Prueba</div></a>
         </div>
 
-    </div>
+
     </div>
 </body>
 

@@ -1,21 +1,68 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     background-image: url(../imgs/fondoTenisMesa.jpg);
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
-.tabla{
+
+h1,
+h2,
+h3,
+.titulo {
+    text-shadow: 2px 1px black;
+    margin: 1%;
+    border-bottom: 1px 1px black;
+    color: white;
+}
+
+.tabla {
     width: 100%;
     height: 100%;
 }
 
-.columnas{
- 
-    border: 1px solid black;
-    border-collapse:collapse ;
-  
-    font-weight: 700;
-    font-size: larger;
+.columnas {
+
+    width: 22%;
+    height: 100%;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding: 1%;
+    display: inline-block;
+}
+
+.jugadorCuarto,
+.jugadorSemi,
+.jugadorFinal,
+.campeon {
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.753);
+    border-radius: 2%;
+    list-style: none;
+}
+
+.jugadorCuarto {
+    margin: 10% 0;
+    border: 2px solid black;
+}
+
+.jugadorSemi {
+    margin: 28% 0;
+    border: 2px solid yellow;
+
+}
+
+.jugadorFinal {
+    margin: 60% 0;
+    border: 2px solid green;
+}
+
+.campeon {
+    margin: 100% 0;
+    border: 2px solid red;
 }
