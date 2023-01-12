@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url(../imgs/fondoTenisMesa.jpg);
+    /*background-image: url(../imgs/fondoTenisMesa.jpg);*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -65,4 +65,35 @@ h3,
 .campeon {
     margin: 100% 0;
     border: 2px solid red;
+}
+.contenedor{
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    padding: 1%;
+    border: 2px solid black;
+}
+.datosFicha{
+margin: 3%;
+color: rgb(0, 119, 255);
+
+}
+.tituloFicha{
+    color: rgb(0, 119, 255);
+}
+.contenedorLogin{
+    background-color: rgba(0, 119, 255, 0.562);
+    width: 40%;
+padding: 1%;
+    margin: 10% auto;
+    border: 2px solid black; 
+}
+.datosLogin{
+    font-size: x-large;
+    font-weight: 600;
+    text-shadow: 1px 1px white;
+}
+.inputLogin{
+    width: 90%;
+    padding: 1%;
 }
