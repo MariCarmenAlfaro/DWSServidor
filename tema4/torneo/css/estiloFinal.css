@@ -97,3 +97,8 @@ padding: 1%;
     width: 90%;
     padding: 1%;
 }
+.tablaTorneo,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 1%;
+}
