@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torneos</title>
-    <link rel="stylesheet" href="css/estiloFinal.css">
+    <link rel="stylesheet" href="../css/estiloFinal.css">
 </head>
 <body>
     <a href="gestionTorneosVista.php">Crear torneo</a>
@@ -20,6 +20,13 @@
             <th>Campeón</th>
         </tr>
         <tr>
+            <?php
+            require("torneoReglasNegocio.php");
+               while ($myrow = $result->fetch_assoc()) 
+               {
+                   echo $myrow['titulo'];
+               }
+               ?>
             <td></td>
             <td></td>
         </tr>
