@@ -26,6 +26,8 @@ h3,
     height: 100%;
 }
 
+
+
 .columnas {
 
     width: 22%;
@@ -66,38 +68,46 @@ h3,
     margin: 100% 0;
     border: 2px solid red;
 }
-.contenedor{
+
+.contenedor {
     background-color: white;
     width: 50%;
     margin: auto;
     padding: 1%;
     border: 2px solid black;
 }
-.datosFicha{
-margin: 3%;
-color: rgb(0, 119, 255);
+
+.datosFicha {
+    margin: 3%;
+    color: rgb(0, 119, 255);
 
 }
-.tituloFicha{
+
+.tituloFicha {
     color: rgb(0, 119, 255);
 }
-.contenedorLogin{
+
+.contenedorLogin {
     background-color: rgba(0, 119, 255, 0.562);
     width: 40%;
-padding: 1%;
+    padding: 1%;
     margin: 10% auto;
-    border: 2px solid black; 
+    border: 2px solid black;
 }
-.datosLogin{
+
+.datosLogin {
     font-size: x-large;
     font-weight: 600;
     text-shadow: 1px 1px white;
 }
-.inputLogin{
+
+.inputLogin {
     width: 90%;
     padding: 1%;
 }
-.tablaTorneo,th{
+
+.tablaTorneo,
+th, .torneosVista,tr,td, .listaTorneos{
     border: 1px solid black;
     border-collapse: collapse;
     margin: 1%;
