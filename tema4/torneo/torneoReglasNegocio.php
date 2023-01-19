@@ -7,14 +7,16 @@ class TorneosReglasNegocio
 {
   private $_ID;
   private $_Name;
+  private $_Date;
   function __construct()
   {
   }
 
-  function init($id,$Name)
+  function init($id,$Name, $Date)
   {
     $this->_ID = $id;
     $this->_Name = $Name;
+    $this->_Date = $Date;
   }
 
   function getID()
@@ -25,7 +27,10 @@ class TorneosReglasNegocio
   {
     return $this->_Name;
   }
-
+  function getDate()
+  {
+    return $this->_Date;
+  }
 
   function obtener()
   {
@@ -36,7 +41,7 @@ class TorneosReglasNegocio
 
     foreach ($rs as $torneo) {
       $oTorneosReglasNegocio = new TorneosReglasNegocio();
-      $oTorneosReglasNegocio->Init($torneo['id'],$torneo['nombreTorneo']);
+      $oTorneosReglasNegocio->Init($torneo['id'],$torneo['nombreTorneo'],$torneo['fecha']);
     
       array_push($listaTorneos, $oTorneosReglasNegocio);
     }

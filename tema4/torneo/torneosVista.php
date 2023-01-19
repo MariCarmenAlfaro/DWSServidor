@@ -30,15 +30,27 @@
             echo "<tr class='listaTorneos'>";
             echo "<td>";
             print($torneo->getID());
-            echo "<a>Editar</a>";
-            echo "<a>Borrar</a>";
             echo "</td>";
+
             echo "<td>";
             print($torneo->getName());
+            echo "</td>";
+
+            echo "<td>";
+            print($torneo->getDate());
+            echo "</td>";
+            
+            echo "<td>";
+            print($torneo->getName());
+            echo "</td>";
+
+            echo "<td>";
+            print($torneo->getName());
+            echo "</td>";
+            echo "<td>";
             echo "<a>Editar</a>";
             echo "<a>Borrar</a>";
             echo "</td>";
-        
 
             echo "</tr>";
         }

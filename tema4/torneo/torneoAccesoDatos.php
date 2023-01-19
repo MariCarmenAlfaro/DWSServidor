@@ -10,13 +10,13 @@ class TorneosAccesoDatos
 
 	function obtener()
 	{
-		$conexion = mysqli_connect('localhost','root','12345');
+		$conexion = mysqli_connect('localhost','root','1234');
 		if (mysqli_connect_errno())
 		{
 				echo "Error al conectar a MySQL: ". mysqli_connect_error();
 		}
  		mysqli_select_db($conexion, 'tenis_mesa');
-		$consulta = mysqli_prepare($conexion, "SELECT id,nombreTorneo FROM T_TORNEOS");
+		$consulta = mysqli_prepare($conexion, "SELECT * FROM T_TORNEOS");
         $consulta->execute();
         $result = $consulta->get_result();
 
