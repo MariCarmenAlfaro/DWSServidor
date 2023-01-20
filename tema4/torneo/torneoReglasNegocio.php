@@ -32,10 +32,10 @@ class TorneosReglasNegocio
     return $this->_Date;
   }
 
-  function obtener()
+  function obtenerDatosListaTorneo()
   {
     $torneosDAL = new TorneosAccesoDatos();
-    $rs = $torneosDAL->obtener();
+    $rs = $torneosDAL->obtenerDatosListaTorneo();
 
     $listaTorneos =  array();
 
@@ -47,5 +47,12 @@ class TorneosReglasNegocio
     }
 
     return $listaTorneos;
+  }
+  function insertarNuevosTorneos(){
+    $torneosDAL = new TorneosAccesoDatos();
+    $nombreTorneo=$_POST['nombreTorneo'];
+    $fechaTorneo =$_POST['fecha'];
+    $rs = $torneosDAL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
+
   }
 }

@@ -23,9 +23,10 @@
         ini_set("display_errors", "On");
         ini_set("html_errors", 0);
         $torneosBL = new TorneosReglasNegocio();
-        $datosTorneos = $torneosBL->obtener();
+        $datosTorneos = $torneosBL->obtenerDatosListaTorneo();
         echo "<div >";
 
+        echo "<a href='vistas/gestionTorneosVista.php'>Crear torneo</a>";
         foreach ($datosTorneos as $torneo) {
             echo "<tr class='listaTorneos'>";
             echo "<td>";
@@ -48,8 +49,8 @@
             print($torneo->getName());
             echo "</td>";
             echo "<td>";
-            echo "<a>Editar</a>";
-            echo "<a>Borrar</a>";
+            echo "<a href=''>Editar</a>";
+            echo "<a href=''>Borrar</a>";
             echo "</td>";
 
             echo "</tr>";

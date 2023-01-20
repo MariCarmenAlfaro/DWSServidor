@@ -10,13 +10,24 @@
 </head>
 <body>
     <div class="contenedorLogin">
-    <form action="" method="get">
+    <form action="../insertarTorneo.php" method="post">
         <p class="datosLogin">Nombre</p>
-        <input type="text" name="" id="">
+
+        <input type="text" name="nombreTorneo" id="">
         <p class="datosLogin">Fecha</p>
-        <input type="text" name="" id="">
-        <input type="button" value="Crear torneo">
+
+        <input type="date" name="fecha" id="">
+        <input type="submit" value="Crear torneo">
     </form>
     </div>
+    <?php
+    require("torneoReglasNegocio.php");
+    ini_set("display_errors", "On");
+    ini_set("html_errors", 0);
+    $torneosBL = new TorneosReglasNegocio();
+    $nombreTorneo=$_POST['nombreTorneo'];
+    $fechaTorneo =$_POST['fecha'];
+    $datosTorneos = $torneosBL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
+    ?>
 </body>
 </html>
