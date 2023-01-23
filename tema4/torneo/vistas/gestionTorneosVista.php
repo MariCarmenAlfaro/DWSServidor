@@ -21,13 +21,15 @@
     </form>
     </div>
     <?php
-    require("torneoReglasNegocio.php");
+    require("../torneoReglasNegocio.php");
     ini_set("display_errors", "On");
     ini_set("html_errors", 0);
     $torneosBL = new TorneosReglasNegocio();
     $nombreTorneo=$_POST['nombreTorneo'];
     $fechaTorneo =$_POST['fecha'];
     $datosTorneos = $torneosBL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
+   
+
     ?>
 </body>
 </html>

@@ -11,7 +11,7 @@ class TorneosAccesoDatos
 	function obtenerDatosListaTorneo()
 	{
 
-		$conexion = mysqli_connect('localhost', 'root', '12345');
+		$conexion = mysqli_connect('localhost', 'root', '1234');
 		if (mysqli_connect_errno()) {
 			echo "Error al conectar a MySQL: " . mysqli_connect_error();
 		}
@@ -29,7 +29,7 @@ class TorneosAccesoDatos
 	}
 	function insertarNuevosTorneos($nombreTorneo,$fechaTorneo)
 	{
-		$conexion = mysqli_connect('localhost', 'root', '12345');
+		$conexion = mysqli_connect('localhost', 'root', '1234');
 		if (mysqli_connect_errno()) {
 			echo "Error al conectar a MySQL: " . mysqli_connect_error();
 		}
