@@ -15,10 +15,10 @@ h1,
 h2,
 h3,
 .titulo {
-    text-shadow: 2px 1px black;
+    text-shadow: 2px 1px rgb(112, 179, 255);
     margin: 1%;
-    border-bottom: 1px 1px black;
-    color: white;
+    border-bottom: 1px 1px rgb(0, 119, 255);
+    color: black;
 }
 
 .tabla {
