@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="contenedorLogin">
-    <form action="../insertarTorneo.php" method="post">
+    <form action="../Vistas/insertarTorneo.php" method="post">
         <p class="datosLogin">Nombre</p>
 
         <input type="text" name="nombreTorneo" id="">
@@ -21,7 +21,7 @@
     </form>
     </div>
     <?php
-    require("../torneoReglasNegocio.php");
+    require("../Negocio/torneoReglasNegocio.php");
     ini_set("display_errors", "On");
     ini_set("html_errors", 0);
     $torneosBL = new TorneosReglasNegocio();

@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="../css/estiloFinal.css">
 </head>
 <body>
-<h1> Listado de torneos para Usuarios </h1>
+<h1> Listado de torneos para usuarios </h1>
     <table class="listaTorneos"> 
         <tr>
             <td>ID</td>
             <td>Nombre del torneo</td>
             <td>Fecha</td>
             <td>Estado</td>
+            <td>Número jugadores</td>
             <td>Campeón</td>
         </tr>
+        <a href="logout.php"> Cerrar sesión </a>
 <?php
         require("../Negocio/torneoReglasNegocio.php");
         ini_set("display_errors", "On");
@@ -40,16 +42,13 @@
             echo "</td>";
             
             echo "<td>";
-            
+            print($torneo->getNumPlayer());
             echo "</td>";
 
             echo "<td>";
           
             echo "</td>";
-            echo "<td>";
-            echo "<a href=''>Editar</a>";
-            echo "<a href=''>Borrar</a>";
-            echo "</td>";
+         
 
             echo "</tr>";
         }
