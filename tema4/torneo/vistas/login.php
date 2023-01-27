@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
     {
         session_start(); //inicia o reinicia una sesión
         $_SESSION['usuario'] = $_POST['usuario'];
-        header("Location: torneosVista.php");
+        header("Location: torneosVistaAdmin.php");
     }elseif($perfil==="jugador"){
         session_start(); 
         $_SESSION['usuario'] = $_POST['usuario'];

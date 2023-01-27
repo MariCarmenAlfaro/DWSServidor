@@ -28,7 +28,7 @@
     $nombreTorneo=$_POST['nombreTorneo'];
     $fechaTorneo =$_POST['fecha'];
     $datosTorneos = $torneosBL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
-   
+    $eliminarTorneos= $torneosBL->eliminarTorneo($_POST($id));
 
     ?>
 </body>

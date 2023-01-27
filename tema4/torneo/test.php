@@ -6,6 +6,7 @@ require("AccesoDatos/usuarioAccesoDatos.php");
 function test_alta_usuario()
 {
     $u = new UsuarioAccesoDatos();
+    
     return $u->insertar('Mari','jugador','1234');
 }
 function test_alta_usuario_admin()

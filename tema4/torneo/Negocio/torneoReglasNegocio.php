@@ -55,6 +55,22 @@ class TorneosReglasNegocio
 
     return $listaTorneos;
   }
+  function obtenerDatosJugadores()
+  {
+    $torneosDAL = new TorneosAccesoDatos();
+    $rs = $torneosDAL->obtenerDatosJugadores();
+
+    $listaTorneos =  array();
+
+    foreach ($rs as $jugadores) {
+      $oTorneosReglasNegocio = new TorneosReglasNegocio();
+      $oTorneosReglasNegocio->Init($jugadores['id'],$jugadores['nombreJugador']);
+    
+      array_push($listaJugadores, $oTorneosReglasNegocio);
+    }
+
+    return $listaJugadores;
+  }
   function insertarNuevosTorneos(){
     $torneosDAL = new TorneosAccesoDatos();
     $nombreTorneo=$_POST['nombreTorneo'];
@@ -62,4 +78,9 @@ class TorneosReglasNegocio
     $rs = $torneosDAL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
 
   }
+  function eliminarTorneo($id){
+    $torneosDAL = new TorneosAccesoDatos();
+    $rs = $torneosDAL->eliminarTorneo($_POST($id));
+  }
+
 }

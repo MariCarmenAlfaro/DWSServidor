@@ -39,9 +39,10 @@
         $torneosBL = new TorneosReglasNegocio();
         $datosTorneos = $torneosBL->obtenerDatosListaTorneo();
         echo "<div >";
-
+         $i=0;
         echo "<a href='../Vistas/gestionTorneosVista.php'>Crear torneo</a>";
         foreach ($datosTorneos as $torneo) {
+           
             echo "<tr class='listaTorneos'>";
             echo "<td>";
             print($torneo->getID());
@@ -64,11 +65,11 @@
             echo "</td>";
             
             echo "<td>";
-            echo "<a href=''>Editar</a>";
+            echo "<a href='partidos.php'>Editar</a>";
             echo "</td>";
 
             echo "<td>";
-             echo "<a href=''>Borrar</a>";
+             echo "<a href='eliminarTorneo.php?id=".$torneo->getID()."'>Borrar</a>";
             echo "</td>";
             echo "</tr>";
         }
