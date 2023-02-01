@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="../css/estiloFinal.css">
 </head>
 <body>
+    <?php require("../Negocio/torneoReglasNegocio.php");
+        ini_set("display_errors", "On");
+        ini_set("html_errors", 0);
+        $torneosBL = new TorneosReglasNegocio();
+        $datosTorneos = $torneosBL->obtenerDatosListaTorneo();
+         ?>
+
+
 <h1> Listado de torneos para usuarios </h1>
+<a href="logout.php"> Cerrar sesión </a>
     <table class="listaTorneos"> 
         <tr>
             <td>ID</td>
@@ -17,43 +26,52 @@
             <td>Estado</td>
             <td>Número jugadores</td>
             <td>Campeón</td>
+            
         </tr>
-        <a href="logout.php"> Cerrar sesión </a>
+       
 <?php
-        require("../Negocio/torneoReglasNegocio.php");
-        ini_set("display_errors", "On");
-        ini_set("html_errors", 0);
-        $torneosBL = new TorneosReglasNegocio();
-        $datosTorneos = $torneosBL->obtenerDatosListaTorneo();
-        echo "<div >";
-
+        
+    
         foreach ($datosTorneos as $torneo) {
-            echo "<tr class='listaTorneos'>";
+          
+           
+            echo "<tr class='listaTorneos' >";
+         
+            echo " <td>";
+            print($torneo->getId());
+            echo "</td> ";
+           
             echo "<td>";
-            print($torneo->getID());
+            print( "<a  href='jugadorVista.php?idTorneo=".$torneo->getId()."'> ".$torneo->getNombreTorneo());
+        
             echo "</td>";
 
             echo "<td>";
-            print($torneo->getName());
-            echo "</td>";
-
-            echo "<td>";
-            print($torneo->getDate());
+            print($torneo->getFecha());
             echo "</td>";
             
             echo "<td>";
-            print($torneo->getNumPlayer());
+           
             echo "</td>";
 
             echo "<td>";
-          
+           print($torneo->getNumeroJugadores());
             echo "</td>";
          
+            echo "<td>";
+            echo "</td>";
+
+           
 
             echo "</tr>";
+
+            
+           
+           
+           
         }
 
-        echo "</div>";
+       
 
         ?>
 </body>

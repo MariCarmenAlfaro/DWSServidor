@@ -13,8 +13,8 @@
     <h1>Torneo tenis mesa</h1>
     <h2>Temporada 2023</h2>
     <?php
-    require("../Negocio/torneoReglasNegocio.php");
-   $jugadores = new TorneosReglasNegocio();
+    require("../Negocio/jugadoresReglasNegocio.php");
+   $jugadores = new JugadoresReglasNegocio();
    $datosTorneos = $jugadores->obtenerDatosJugadores();
  echo "<div class='tabla'>";
 
@@ -22,7 +22,7 @@
      echo " <h3>Cuartos</h3>";
         foreach($datosTorneos as $jugador){
         echo "<div class='cuartos'>";
-            echo" <a href='jugadorVistaFicha.php?id=$_GET($id)'> <div class='jugadorCuarto'>".  $jugador->getNAME()."</div></a>";
+            echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> <div class='jugadorCuarto'>".  $jugador->getNombreJugador()."</div></a>";
 }
                echo "</div>";
     echo "</div>";           
