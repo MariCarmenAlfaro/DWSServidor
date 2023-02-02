@@ -45,7 +45,7 @@ class JugadoresReglasNegocio
 
   function obtenerDatosJugadorFicha($id)
   {
-    $torneosDAL = new JugadoresAccesoDatos();
+    //$torneosDAL = new JugadoresAccesoDatos();
     $rs = $torneosDAL->obtenerDatosJugadorFicha(1);
 
    

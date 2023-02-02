@@ -36,7 +36,7 @@ class PartidosAccesoDatos
 	}
 
 
-	function obtenerDatosListaPartido()
+	function obtenerDatosListaPartido($idTorneo)
 	{
 
 		$conexion = mysqli_connect('localhost', 'root', '1234');
@@ -44,7 +44,7 @@ class PartidosAccesoDatos
 			echo "Error al conectar a MySQL: " . mysqli_connect_error();
 		}
 		mysqli_select_db($conexion, 'tenis_mesa');
-		$consulta = mysqli_prepare($conexion, "SELECT * FROM T_PARTIDOS");
+		$consulta = mysqli_prepare($conexion, "SELECT * FROM T_PARTIDOS where idTorneo=".$idTorneo."");
 		$consulta->execute();
 		$result = $consulta->get_result();
 

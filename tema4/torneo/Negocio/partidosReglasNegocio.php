@@ -51,9 +51,9 @@ class PartidosReglasNegocio
     return $this->_ganador;
   }
 
-  function crearPartido($jugadorA,$jugadorB, $ronda, $idTorneo, $ganador){
-    $torneosDAL = new TorneosAccesoDatos();
-    $torneosDAL->crearPartido($jugadorA,$jugadorB, $ronda, $idTorneo, $ganador);
+  function crearPartidoConganador($jugadorA,$jugadorB, $ronda, $idTorneo, $ganador){
+    $partidosDAL = new PartidosAccesoDatos();
+    $partidosDAL->crearPartidoConganador($jugadorA,$jugadorB, $ronda, $idTorneo, $ganador);
   }
 
   function insertarPartidosNuevosTorneo($idTorneo){
@@ -73,8 +73,8 @@ class PartidosReglasNegocio
     }
    
   }
-  function obtenerDatosListaPartido(){
+  function obtenerDatosListaPartido($idTorneo){
     $datosPartidos = new PartidosAccesoDatos();
-   return $datosPartidos->obtenerDatosListaPartido();
+   return $datosPartidos->obtenerDatosListaPartido($idTorneo);
   }
 }

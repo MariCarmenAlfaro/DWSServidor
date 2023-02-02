@@ -17,8 +17,8 @@
           $torneosBL = new TorneosReglasNegocio();
           $datosTorneos=$torneosBL->obtenerDatosListaTorneo();
 
-          $partidosBL= new PartidosReglasNegocio();
-          $datosPartidos = $partidosBL->obtenerDatosListaPartido();
+        
+       
         
           $movimiento;
           if(isset($_GET['type'])){
@@ -41,12 +41,15 @@
                 break;
             
             case 'edit':
+                $partidosBL= new PartidosReglasNegocio();
+                $idTorneoActual=$_GET['id'];
+                $datosPartidos = $partidosBL->obtenerDatosListaPartido($idTorneoActual);
                 echo "<div >";
-     
-                echo "<a href='../Vistas/resultadoPartidaVista.php'>Crear partido</a>";
-             
+                
+                echo "<a href='../Vistas/resultadoPartidaVista.php?id=".$idTorneoActual."'>Crear partido</a>";
+            
                 foreach ($datosPartidos as $partido) {
-                   //  print_r($partido); 
+                   
                     echo "<tr class='listaTorneos'>";
                     echo "<td>";
                     print($partido->getId());
@@ -69,7 +72,7 @@
                     echo "</td>";
                     
                     echo "<td>";
-                    echo "<a href='gestionTorneosVista.php?type=edit&id=".$partido->getId()."'>Editar</a>";
+                    echo "<a href='gestionTorneosVista.php'>Editar</a>";
                     echo "</td>";
         
                     echo "<td>";

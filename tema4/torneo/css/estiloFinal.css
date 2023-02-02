@@ -99,6 +99,7 @@ h3,
     font-size: x-large;
     font-weight: 600;
     text-shadow: 1px 1px white;
+    padding: 1%;
 }
 
 .inputLogin {
@@ -119,8 +120,12 @@ th, .torneosVista,tr,td, .listaTorneos{
     padding: 1%;
     margin: auto;
     text-align: center;
-    width: 50px;
+    width: 70px;
     display: block;
+  }
+  .unidadesPartidoNuevo{
+    float: left;
+    width: 100%;
   }
   
 .boton:hover {
