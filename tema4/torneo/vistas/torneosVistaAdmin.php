@@ -40,7 +40,7 @@
         $datosTorneos = $torneosBL->obtenerDatosListaTorneo();
         echo "<div >";
      
-        echo "<a href='../Vistas/gestionTorneosVista.php'>Crear torneo</a>";
+        echo "<a href='../Vistas/gestionTorneosVista.php?type=create'>Crear torneo</a>";
         foreach ($datosTorneos as $torneo) {
            
             echo "<tr class='listaTorneos'>";
@@ -65,11 +65,11 @@
             echo "</td>";
             
             echo "<td>";
-            echo "<a href='partidos.php'>Editar</a>";
+            echo "<a href='gestionTorneosVista.php?type=edit&id=".$torneo->getId()."'>Editar</a>";
             echo "</td>";
 
             echo "<td>";
-             echo "<a href='eliminarTorneo.php?id=".$torneo->getId()."&name=".$torneo->getNombreTorneo()."'>Borrar</a>";
+             echo "<a href='gestionTorneosVista.php?type=delete&id=".$torneo->getId()."&name=".$torneo->getNombreTorneo()."'>Borrar</a>";
             echo "</td>";
             echo "</tr>";
         }

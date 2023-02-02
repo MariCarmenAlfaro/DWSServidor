@@ -26,7 +26,7 @@ class PartidosReglasNegocio
     $this->_idJugador2 = $idJugador2;
     $this->_ganador = $ganador;
   }
-  function getid()
+  function getId()
   {
     return $this->_id;
   } 
@@ -57,24 +57,24 @@ class PartidosReglasNegocio
   }
 
   function insertarPartidosNuevosTorneo($idTorneo){
-   // TODO controlar bien los id de los jugadores. ya que a veces coge el id 0
     $partidosDAL = new PartidosAccesoDatos();
     $jugadores = new JugadoresAccesoDatos();
     $jugadoresDatos= $jugadores->obtenerDatosJugadores();
-     $jugadoresArray=[];
+    $jugadoresArray=[];
+
     foreach($jugadoresDatos as $jugadorId){
       array_push($jugadoresArray, $jugadorId['id']);
     }
-   
-    for ($i=0; $i <4 ; $i++) { 
-      $jugador1=rand(1,(count($jugadoresArray)+1));
-      unset($jugadoresArray[$jugador1]);
-      $jugador2=rand(1,(count($jugadoresArray)+1));
-      unset($jugadoresArray[$jugador2]);
-      
-     // TODO cambiar jugador1 por jugadoresArray[jugador1]
-    $partidosDAL->crearPartido($jugador1,$jugador2, "Cuartos",$idTorneo);
+    shuffle($jugadoresArray);
+    for ($i=0; $i <=6 ; $i=$i+2) { 
+ 
+    $partidosDAL->crearPartido($jugadoresArray[$i],$jugadoresArray[$i+1], "Cuartos",$idTorneo);
+
     }
    
+  }
+  function obtenerDatosListaPartido(){
+    $datosPartidos = new PartidosAccesoDatos();
+   return $datosPartidos->obtenerDatosListaPartido();
   }
 }

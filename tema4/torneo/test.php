@@ -9,6 +9,12 @@ function test_alta_usuario()
     
     return $u->insertar('Mari','jugador','1234');
 }
+function test_alta_usuario2()
+{
+    $u = new UsuarioAccesoDatos();
+    
+    return $u->insertar('Mari2','jugador','123456789');
+}
 function test_alta_usuario_admin()
 {
     $u = new UsuarioAccesoDatos();
@@ -26,3 +32,4 @@ function test_verificar_usuario_encontrado()
 var_dump(test_alta_usuario());
 var_dump(test_verificar_usuario_encontrado());
 var_dump(test_alta_usuario_admin());
+var_dump(test_alta_usuario2());

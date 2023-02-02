@@ -64,23 +64,10 @@ class TorneosReglasNegocio
     $jugadores = new JugadoresAccesoDatos();
     $nombreTorneo=$_POST['nombreTorneo'];
     $fechaTorneo =$_POST['fecha'];
-    $jugadoresDatos= $jugadores->obtenerDatosJugadores();
-    $jugadoresArray=[];
+
     //primero se crea el torneo para luego poderle decir a los partidos que tonreo es
     $torneosDAL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
-    foreach($jugadoresDatos as $jugadorId){
-      array_push($jugadoresArray, $jugadorId['id']);
-    }
  
-    //$idUltimoTorneo= $torneosDAL->obtenerIdUtlimoTorneo();
-      for ($i=0; $i <4 ; $i++) { 
-        $jugador1=rand(1,(count($jugadoresArray)+1));
-        unset($jugadoresArray[$jugador1]);
-        $jugador2=rand(1,(count($jugadoresArray)+1));
-        unset($jugadoresArray[$jugador2]);
-      //TODO obtener idTorneos
-   // $torneosDAL->crearPartido($jugador1,$jugador2, "Cuartos",$idUltimoTorneo, null);
-    }
     //hacer llamada a base de datos para obtener id de jugadores; 
 
     //bucle de 4 para crear 4 partidos
@@ -92,7 +79,7 @@ class TorneosReglasNegocio
   }
   function obtenerIdUtlimoTorneo(){
     $torneosDAL = new TorneosAccesoDatos();
-    $torneosDAL->obtenerIdUtlimoTorneo();
+   return $torneosDAL->obtenerIdUtlimoTorneo();
   }
 
   function eliminarTorneo($id){

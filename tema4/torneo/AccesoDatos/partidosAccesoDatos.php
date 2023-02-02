@@ -51,7 +51,7 @@ class PartidosAccesoDatos
 		$partidos =  array();
 
 		while ($myrow = $result->fetch_assoc()) {
-			array_push($torneos, $myrow);
+			array_push($partidos, $myrow);
 		}
 		return $partidos;
 	}

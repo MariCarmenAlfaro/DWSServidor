@@ -14,7 +14,6 @@ class UsuarioAccesoDatos
 		{
 				echo "Error al conectar a MySQL: ". mysqli_connect_error();
 		}
- 		
         mysqli_select_db($conexion, 'tenis_mesa');
 		$consulta = mysqli_prepare($conexion, "insert into t_usuarios(usuario,clave,perfil) values (?,?,?);");
         $hash = password_hash($clave, PASSWORD_DEFAULT);
