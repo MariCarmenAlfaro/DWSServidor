@@ -11,16 +11,11 @@
     <?php
 require("../Negocio/jugadoresReglasNegocio.php");
    $jugadores = new JugadoresReglasNegocio();
- 
-  $jugador = $jugadores->obtenerDatosJugadorFicha($_GET['id']);
- 
- 
-  
- 
+
    ?>
     <div class="contenedor">
         <h1 class="tituloFicha">Ficha jugador</h1>
-        <p class="datosFicha">Nombre:<?php echo $jugador->getNombreJugador(); ?></p>
+        <p class="datosFicha">Nombre:</p>
         <p class="datosFicha">Total de partidos jugados: </p>
         <p class="datosFicha">Porcentaje de victorias: </p>
         <p class="datosFicha">Total de torneos disputados:</p>

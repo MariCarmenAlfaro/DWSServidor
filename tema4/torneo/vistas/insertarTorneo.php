@@ -18,7 +18,6 @@ require("../Negocio/partidosReglasNegocio.php");
     $torneosBL = new TorneosReglasNegocio();
     $partidosBL = new PartidosReglasNegocio();
 
-   //TODO obtener el id del torneo actual con $datosTorneos->getId() o algo asi dice mari que le ha dicho el profesor
     $nombreTorneo=$_POST['nombreTorneo'];
     $fechaTorneo =$_POST['fecha'];
     $datosTorneos = $torneosBL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);

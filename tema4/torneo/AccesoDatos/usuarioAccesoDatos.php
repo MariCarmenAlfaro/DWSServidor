@@ -43,7 +43,7 @@ class UsuarioAccesoDatos
             return 'NOT_FOUND';
         }
 
-        if ($res->num_rows>1) //El nombre de usuario debería ser único.
+        if ($res->num_rows>1) 
         {
             return 'NOT_FOUND';
         }

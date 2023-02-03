@@ -12,22 +12,21 @@
 <body>
     <h1>Torneo tenis mesa</h1>
     <h2>Temporada 2023</h2>
+    
     <?php
     
     require("../Negocio/jugadoresReglasNegocio.php");
-  // require_once("../Negocio/partidosReglasNegocio.php");
-  $negocio = new JugadoresReglasNegocio();
+
+  $jugadoresPartido = new JugadoresReglasNegocio();
 
   $id=$_GET['idTorneo'];
 
-  //obtener partidos cuartos
-   $partidoCuartos = $negocio->obtenerJugadoresDePartidos($id, "Cuartos");
+  
+   $partidoCuartos = $jugadoresPartido->obtenerJugadoresDePartidos($id, "Cuartos");
 
-   //Obtener partidos semifinal
-   $partidoSemiFinal = $negocio->obtenerJugadoresDePartidos($id, "Semifinal");
+   $partidoSemiFinal = $jugadoresPartido->obtenerJugadoresDePartidos($id, "Semifinal");
 
-   //Obtener partidos final
-   $partidoFinal = $negocio->obtenerJugadoresDePartidos($id, "Final");
+   $partidoFinal = $jugadoresPartido->obtenerJugadoresDePartidos($id, "Final");
 
    
 
@@ -37,11 +36,11 @@
         echo " <h3>Cuartos</h3>";
          
             foreach($partidoCuartos as $jugador){
-               
+               print_r($jugador->getId());
                 echo "<div class='cuartos'>";
                 
-                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getJugador1()."'> <div class='jugadorCuarto'>".$jugador->getJugador1()."</div></a>";
-                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getJugador2()."'> <div class='jugadorCuarto'>".  $jugador->getJugador2()."</div></a>  </div>";
+                echo" <a href='jugadorVistaFicha.php?id='> <div class='jugadorCuarto'>".$jugador->getJugador1()."</div></a>";
+                echo" <a href='jugadorVistaFicha.php?id='> <div class='jugadorCuarto'>".  $jugador->getJugador2()."</div></a>  </div>";
             }
         echo "</div>";
 
@@ -52,11 +51,11 @@
          
           foreach($partidoSemiFinal as $jugadorSemi){
             echo "<div class='semifinal'>";
-                echo" <a href='jugadorVistaFicha.php?id=".$jugadorSemi->getJugador1()."'> 
-                <div class='jugadorCuarto'>".$jugadorSemi->getJugador1()."</div></a>";
+                echo" <a href='jugadorVistaFicha.php?id='> 
+                <div class='jugadorSemi'>".$jugadorSemi->getJugador1()."</div></a>";
 
-                echo" <a href='jugadorVistaFicha.php?id=".$jugadorSemi->getJugador2()."'> 
-                <div class='jugadorCuarto'>".$jugadorSemi->getJugador2()."</div></a> </div>";
+                echo" <a href='jugadorVistaFicha.php?id='> 
+                <div class='jugadorSemi'>".$jugadorSemi->getJugador2()."</div></a> </div>";
 
                 }
          
@@ -65,19 +64,16 @@
 
         echo "<div class='columnas'>";
         echo "<h3>Final</h3>";
-
-            
                 foreach($partidoFinal as $jugadorFinal){
-            echo  "<div class='final'>";
+                        echo  "<div class='final'>";
                    
-                        echo" <a href='jugadorVistaFicha.php?id=".$jugadorFinal->getJugador1()."'> 
-                        <div class='jugadorCuarto'>".$jugadorFinal->getJugador1()."</div></a> ";
+                        echo" <a href='jugadorVistaFicha.php?id='> 
+                        <div class='jugadorFinal'>".$jugadorFinal->getJugador1()."</div></a> ";
 
-                        echo" <a href='jugadorVistaFicha.php?id=".$jugadorFinal->getJugador1()."'> 
-                        <div class='jugadorCuarto'>".$jugadorFinal->getJugador2()."</div></a> </div>";
+                        echo" <a href='jugadorVistaFicha.php?id='> 
+                        <div class='jugadorFinal'>".$jugadorFinal->getJugador2()."</div></a> </div>";
 
                         }
-            
         echo "</div>";
 
 
@@ -86,7 +82,8 @@
             echo "<div class='titulo'>Campeón</div>";
            echo "</h3>";
 
-            echo "<a href=''>  <div class='campeon'>".$jugadorFinal->getGanador()."</div></a>";
+            echo "<a href='jugadorVistaFicha.php?id='>
+            <div class='campeon'>".$jugadorFinal->getGanador()."</div></a>";
             echo "</div>";
         echo "</div>";
         
@@ -95,6 +92,7 @@
 
    
     ?>
+
 </body>
 
 </html>

@@ -1,10 +1,12 @@
 * {
     padding: 0;
     margin: 0;
+    color: #008bba82;
+    text-shadow: 1px 1px rgb(255, 255, 255);
 }
 
 body {
-    /*background-image: url(../imgs/fondoTenisMesa.jpg);*/
+    background-image: url(../imgs/fondoTenisMesa.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -17,16 +19,14 @@ h3,
 .titulo {
     text-shadow: 2px 1px rgb(112, 179, 255);
     margin: 1%;
-    border-bottom: 1px 1px rgb(0, 119, 255);
-    color: black;
+    color: white;
+   
 }
 
 .tabla {
     width: 100%;
     height: 100%;
 }
-
-
 
 .columnas {
 
@@ -36,6 +36,7 @@ h3,
     vertical-align: top;
     padding: 1%;
     display: inline-block;
+    
 }
 
 .jugadorCuarto,
@@ -43,24 +44,24 @@ h3,
 .jugadorFinal,
 .campeon {
     text-align: center;
-    background-color: rgba(240, 248, 255, 0.753);
+    background-color: rgba(47, 58, 67, 0.753);
     border-radius: 2%;
     list-style: none;
 }
 
 .jugadorCuarto {
-    margin: 10% 0;
+    margin: 18% 0;
     border: 2px solid black;
 }
 
 .jugadorSemi {
-    margin: 28% 0;
+    margin: 40% 0 0 0;
     border: 2px solid yellow;
 
 }
 
 .jugadorFinal {
-    margin: 60% 0;
+    margin: 70% 0;
     border: 2px solid green;
 }
 
@@ -88,17 +89,19 @@ h3,
 }
 
 .contenedorLogin {
-    background-color: rgba(0, 119, 255, 0.562);
-    width: 40%;
+    background-color: rgba(80, 98, 122, 0.562);
+    width: 30%;
+    height: 250px;
     padding: 1%;
     margin: 10% auto;
     border: 2px solid black;
+    text-align: center;
 }
 
 .datosLogin {
     font-size: x-large;
     font-weight: 600;
-    text-shadow: 1px 1px white;
+    text-shadow: 1px 1px rgb(255, 255, 255);
     padding: 1%;
 }
 
@@ -106,12 +109,24 @@ h3,
     width: 90%;
     padding: 1%;
 }
-
+input {
+    color: black;
+    margin: 2%;
+}
 .tablaTorneo,
 th, .torneosVista,tr,td, .listaTorneos{
-    border: 1px solid black;
+    border: 2px solid rgb(255, 255, 255);
     border-collapse: collapse;
-    margin: 1%;
+    margin: 3%;
+    
+}
+.listaTorneos{
+    width: 700px;
+    height: auto;
+    background-color: #008bba82;
+}
+td{
+    padding: 1%;
 }
 .boton{
     background-color: white; 

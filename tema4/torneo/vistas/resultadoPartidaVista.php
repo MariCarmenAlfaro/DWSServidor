@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
     <link rel="stylesheet" href="../css/estiloFinal.css">
 </head>
 <body>
     <?php
 
    require("../Negocio/jugadoresReglasNegocio.php");
-   //require_once("../Negocio/partidosReglasNegocio.php");
+
    $jugadoresBL= new JugadoresReglasNegocio();
    
    $datosJugadores= $jugadoresBL->obtenerDatosJugadores();
@@ -23,7 +23,7 @@
         switch ($movimiento) {
              case 'create':
                
-                echo "<div class='contenedorLogin'>";
+            echo "<div class='contenedorLogin'>";
    
                 echo "<form action='../Vistas/insertarPartido.php?type=create&idTorneo=".$idTorneoActual."' method='post'>";
                 echo "<div class='unidadesPartidoNuevo'>";
@@ -64,7 +64,7 @@
                 echo "</div>";
                 echo "<input class='boton' type='submit' value='Guardar'>";
                 echo "</form>";
-                echo "</div>";
+            echo "</div>";
              break;
             case 'edit':
                 $idPartidoActual=$_GET['idPartido'];

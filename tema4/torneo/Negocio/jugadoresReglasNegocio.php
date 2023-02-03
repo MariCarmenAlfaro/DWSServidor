@@ -1,7 +1,6 @@
 <?php
 
 require("../AccesoDatos/jugadoresAccesoDatos.php");
-
 require("../AccesoDatos/partidosAccesoDatos.php");
 ini_set("display_errors", "On");
 ini_set("html_errors",0);
@@ -23,11 +22,6 @@ class JugadoresReglasNegocio
     $this->_id = $id;
     $this->_nombreJugador = $nombreJugador;
 
-  }
-  function init1($id,$nombreJugador)
-  {
-    $this->_id = $id;
-    $this->_nombreJugador = $nombreJugador;
   }
 
 function initJoin($jugador1, $jugador2, $ganador){
@@ -59,9 +53,6 @@ function initJoin($jugador1, $jugador2, $ganador){
     return $this->_ganador;
   }
 
-
-
-
   function obtenerDatosJugadores()
   {
     $jugadores = new JugadoresAccesoDatos();
@@ -89,27 +80,31 @@ function initJoin($jugador1, $jugador2, $ganador){
     $listaJugadores= array();
   
 
-  foreach($datosJugadoresPartido as $player){
+  foreach($datosJugadoresPartido as $jugador){
     
     $resultado=new JugadoresReglasNegocio();
     
-    $resultado->initJoin($player['jugador1'],$player['jugador2'], $player['ganador']);
+    $resultado->initJoin($jugador['jugador1'],$jugador['jugador2'], $jugador['ganador']);
   
     array_push($listaJugadores, $resultado);
   }
   
     return $listaJugadores;
   }
+
+
+  
   function obtenerDatosJugadorFicha($idTorneo, $tipoPartido)
   {
     $jugadores = new JugadoresAccesoDatos();
     $datosJugadores = $jugadores->obtenerDatosJugadorFicha($idTorneo,$tipoPartido);
 
-   
+    foreach($datosJugadoresPartido as $jugadorFicha){
+    
+    $resultado->init($jugadorFicha['id'],$jugadorFicha['nombreJugador']);
+    }
+    array_push($listaJugadores, $resultado);
 
     return $datosJugadores;
-  }
-
-
-  
+  }  
 }

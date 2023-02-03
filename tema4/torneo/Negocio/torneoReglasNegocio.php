@@ -65,16 +65,8 @@ class TorneosReglasNegocio
     $nombreTorneo=$_POST['nombreTorneo'];
     $fechaTorneo =$_POST['fecha'];
 
-    //primero se crea el torneo para luego poderle decir a los partidos que tonreo es
-    $torneosDAL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
- 
-    //hacer llamada a base de datos para obtener id de jugadores; 
 
-    //bucle de 4 para crear 4 partidos
-    // array de los jugadores. En cada pasada del bucle, cogemos dos jugadores y llamamos
-    // a la función crear partido. Se hace un random para obtener la posición. 
-    // Después de obtener los jugadores o después de crear el partido, se eliminan 
-    // los dos jugadores seleccionados del array de jugadores.
+    $torneosDAL->insertarNuevosTorneos($nombreTorneo,$fechaTorneo);
 
   }
   function obtenerIdUtlimoTorneo(){

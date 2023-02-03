@@ -1,8 +1,8 @@
 
 <?php
 
-require_once("AccesoDatos/usuarioAccesoDatos.php");
-require_once("Negocio/torneosReglasNegocio.php");
+require_once("../AccesoDatos/usuarioAccesoDatos.php");
+
 
 function test_alta_usuario()
 {
@@ -38,4 +38,3 @@ var_dump(test_alta_usuario());
 var_dump(test_verificar_usuario_encontrado());
 var_dump(test_alta_usuario_admin());
 var_dump(test_alta_usuario2());
-var_dump(test_listadoTorneos());

@@ -17,7 +17,7 @@
 
 
 <h1> Listado de torneos para usuarios </h1>
-<a href="logout.php" class="cerrarSesion"> Cerrar sesión </a>
+<a href="logout.php" class="boton"> Cerrar sesión </a>
     <table class="listaTorneos"> 
         <tr class="headertabla">
             <td>ID</td>
@@ -60,18 +60,9 @@
          
             echo "<td>";
             echo "</td>";
-
-           
-
             echo "</tr>";
-
-            
-           
-           
-           
+  
         }
-
-       
 
         ?>
 </body>

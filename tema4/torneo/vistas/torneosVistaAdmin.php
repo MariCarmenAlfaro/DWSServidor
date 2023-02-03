@@ -19,7 +19,7 @@
             <td>Campeón</td>
         </tr>
         <?php
-        session_start(); // reanudamos la sesión
+        session_start();
         if (!isset($_SESSION['usuario']))
         {
             header("Location: login.php");
@@ -28,7 +28,7 @@
 
 
  
-    <?php echo "Bienvenido: ".$_SESSION['usuario']; ?>
+    <?php echo "<h2>Bienvenido/a: ".$_SESSION['usuario']."</h2>;" ?>
     <br>
     <a href="logout.php" class="boton"> Cerrar sesión </a>
 

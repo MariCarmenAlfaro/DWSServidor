@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
     <?php
         if (isset($error))
         {
-            print("<div> No tienes acceso </div>");
+            print("<h2> ¡No tienes acceso! </h2>");
         }
     ?>
 </body>

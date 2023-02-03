@@ -90,7 +90,6 @@ class PartidosReglasNegocio
     array_push($listaPartidos, $oTorneosReglasNegocio);
   }
 
-
   return $listaPartidos;
    
    
