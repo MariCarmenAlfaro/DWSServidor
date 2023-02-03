@@ -17,9 +17,9 @@
 
 
 <h1> Listado de torneos para usuarios </h1>
-<a href="logout.php"> Cerrar sesión </a>
+<a href="logout.php" class="cerrarSesion"> Cerrar sesión </a>
     <table class="listaTorneos"> 
-        <tr>
+        <tr class="headertabla">
             <td>ID</td>
             <td>Nombre del torneo</td>
             <td>Fecha</td>

@@ -17,17 +17,26 @@ require("../Negocio/partidosReglasNegocio.php");
     ini_set("html_errors", 0);
   
     $partidosBL = new PartidosReglasNegocio();
-
-   //TODO obtener el id del torneo actual con $datosTorneos->getId() o algo asi dice mari que le ha dicho el profesor
-    $jugadorA=$_POST['JugadorA'];
+   $jugadorA=$_POST['JugadorA'];
     $jugadorB=$_POST['JugadorB'];
     $ronda=$_POST['ronda'];
     $ganador =$_POST['Ganador'];
-    $idTorneo=$_GET['id'];
-   
-    $partidosBL->crearPartidoConganador($jugadorA,$jugadorB, $ronda, $idTorneo, $ganador);
-   
-  // header("Location:torneosVistaAdmin.php");
+    $idTorneo=$_GET['idTorneo'];
+  $idPartido=$_GET['idPartido'];
+
+    if(isset($_GET['type'])){
+      $movimiento=$_GET['type'];
+         switch ($movimiento) {
+              case 'create':
+     $partidosBL->crearPartido($jugadorA,$jugadorB, $ronda, $idTorneo);
+     break;
+     case 'edit':
+      $partidosBL->modificarPartido($idPartido,$ganador);
+      break;
+              }
+            } 
+ 
+   header("Location:gestionTorneosVista.php?type=edit&idTorneo=".$idTorneo."");
   ?>
 </body>
 </html>

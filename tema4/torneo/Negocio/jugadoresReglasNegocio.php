@@ -1,6 +1,8 @@
 <?php
 
 require("../AccesoDatos/jugadoresAccesoDatos.php");
+
+require("../AccesoDatos/partidosAccesoDatos.php");
 ini_set("display_errors", "On");
 ini_set("html_errors",0);
 class JugadoresReglasNegocio
@@ -29,33 +31,31 @@ class JugadoresReglasNegocio
   }
   function obtenerDatosJugadores()
   {
-    $torneosDAL = new JugadoresAccesoDatos();
-    $rs = $torneosDAL->obtenerDatosJugadores();
-
-    $listaJugadores =  array();
-
-    foreach ($rs as $jugadores) {
-      $oTorneosReglasNegocio = new JugadoresReglasNegocio();
-      $oTorneosReglasNegocio->Init($jugadores['id'],$jugadores['nombreJugador']);
+    $jugadores = new JugadoresAccesoDatos();
     
-      array_push($listaJugadores, $oTorneosReglasNegocio);
-    }
+    $datosJugadoresPartido = $jugadores->obtenerDatosJugadores();
+
+    $listaJugadores= array();
+  
+
+  foreach($datosJugadoresPartido as $player){
+    $resultado=new JugadoresReglasNegocio();
+    $resultado->Init($player['id'],$player['nombreJugador']);
+   
+    array_push($listaJugadores, $resultado);
+  }
+  
     return $listaJugadores;
   }
 
-  function obtenerDatosJugadorFicha($id)
+  function obtenerDatosJugadorFicha($idTorneo, $tipoPartido)
   {
-    //$torneosDAL = new JugadoresAccesoDatos();
-    $rs = $torneosDAL->obtenerDatosJugadorFicha(1);
+    $jugadores = new JugadoresAccesoDatos();
+    $datosJugadores = $jugadores->obtenerDatosJugadorFicha($idTorneo,$tipoPartido);
 
    
-    foreach ($rs as $jugadores) {
-      $oTorneosReglasNegocio = new JugadoresReglasNegocio();
-      $oTorneosReglasNegocio->Init($jugadores['id'],$jugadores['nombreJugador']);
-    }
-  
 
-    return $oTorneosReglasNegocio;
+    return $datosJugadores;
   }
 
 

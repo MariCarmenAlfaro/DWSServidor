@@ -30,7 +30,7 @@
  
     <?php echo "Bienvenido: ".$_SESSION['usuario']; ?>
     <br>
-    <a href="logout.php"> Cerrar sesión </a>
+    <a href="logout.php" class="boton"> Cerrar sesión </a>
 
         <?php
         require("../Negocio/torneoReglasNegocio.php");
@@ -40,7 +40,7 @@
         $datosTorneos = $torneosBL->obtenerDatosListaTorneo();
         echo "<div >";
      
-        echo "<a href='../Vistas/gestionTorneosVista.php?type=create'>Crear torneo</a>";
+        echo "<a href='../Vistas/gestionTorneosVista.php?type=create' class='boton'>Crear torneo</a>";
         foreach ($datosTorneos as $torneo) {
            
             echo "<tr class='listaTorneos'>";
@@ -65,11 +65,11 @@
             echo "</td>";
             
             echo "<td>";
-            echo "<a href='gestionTorneosVista.php?type=edit&id=".$torneo->getId()."'>Editar</a>";
+            echo "<a href='gestionTorneosVista.php?type=edit&idTorneo=".$torneo->getId()."'>Editar</a>";
             echo "</td>";
 
             echo "<td>";
-             echo "<a href='gestionTorneosVista.php?type=delete&id=".$torneo->getId()."&name=".$torneo->getNombreTorneo()."'>Borrar</a>";
+             echo "<a href='gestionTorneosVista.php?type=delete&idTorneo=".$torneo->getId()."&name=".$torneo->getNombreTorneo()."'>Borrar</a>";
             echo "</td>";
             echo "</tr>";
         }

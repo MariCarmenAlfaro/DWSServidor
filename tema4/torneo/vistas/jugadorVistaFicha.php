@@ -16,13 +16,10 @@ require("../Negocio/jugadoresReglasNegocio.php");
  
  
   
-  echo " <br>prueba2 <br>";
-  echo $jugador->getNombreJugador();
-  echo $jugador->getId();
-
+ 
    ?>
     <div class="contenedor">
-        <h1 class="tituloFicha">Ficha</h1>
+        <h1 class="tituloFicha">Ficha jugador</h1>
         <p class="datosFicha">Nombre:<?php echo $jugador->getNombreJugador(); ?></p>
         <p class="datosFicha">Total de partidos jugados: </p>
         <p class="datosFicha">Porcentaje de victorias: </p>

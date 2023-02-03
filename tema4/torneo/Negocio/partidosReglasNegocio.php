@@ -9,8 +9,8 @@ class PartidosReglasNegocio
   private $_id;
   private $_idTorneo;
   private $_tipoPartido;
-  private $idJugador1;
-  private $idJugador2;
+  private $_idJugador1;
+  private $_idJugador2;
   private $_ganador;
 
   function __construct()
@@ -38,24 +38,27 @@ class PartidosReglasNegocio
   {
     return $this->_tipoPartido;
   } 
-   function getJugador1()
+   function getIdJugador1()
   {
-    return $this->_jugador1;
+    return $this->_idJugador1;
   } 
-  function getJugador2()
+  function getIdJugador2()
   {
-    return $this->_jugador2;
+    return $this->_idJugador2;
   } 
    function getGanador()
   {
     return $this->_ganador;
   }
 
-  function crearPartidoConganador($jugadorA,$jugadorB, $ronda, $idTorneo, $ganador){
-    $partidosDAL = new PartidosAccesoDatos();
-    $partidosDAL->crearPartidoConganador($jugadorA,$jugadorB, $ronda, $idTorneo, $ganador);
-  }
-
+ function crearPartido($jugadorA,$jugadorB, $ronda, $idTorneo){
+  $partido= new PartidosAccesoDatos();
+  $partido->crearPartido($jugadorA,$jugadorB, $ronda, $idTorneo);
+ }
+  function modificarPartido($id,$ganador){
+  $partidoGanador= new PartidosAccesoDatos();
+  $partidoGanador->modificarPartido($id,$ganador);
+}
   function insertarPartidosNuevosTorneo($idTorneo){
     $partidosDAL = new PartidosAccesoDatos();
     $jugadores = new JugadoresAccesoDatos();
@@ -72,9 +75,24 @@ class PartidosReglasNegocio
 
     }
    
-  }
+  } 
   function obtenerDatosListaPartido($idTorneo){
     $datosPartidos = new PartidosAccesoDatos();
-   return $datosPartidos->obtenerDatosListaPartido($idTorneo);
+   $rs= $datosPartidos->obtenerDatosListaPartido($idTorneo);
+
+   $listaPartidos =  array();
+
+   
+   foreach ($rs as $partidos) {
+    $oTorneosReglasNegocio = new PartidosReglasNegocio();
+    $oTorneosReglasNegocio->Init($partidos['id'], $partidos['idTorneo'], $partidos['tipoPartido'], $partidos['idJugador1'],$partidos['idJugador2'],$partidos['ganador']);
+  
+    array_push($listaPartidos, $oTorneosReglasNegocio);
+  }
+
+
+  return $listaPartidos;
+   
+   
   }
 }

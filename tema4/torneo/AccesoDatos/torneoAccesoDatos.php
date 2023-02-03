@@ -67,7 +67,7 @@ class TorneosAccesoDatos
 		}
 		mysqli_select_db($conexion, 'tenis_mesa');
 		$consulta = mysqli_prepare($conexion, 
-		"DELETE from T_TORNEOS where id=".$id);
+		"DELETE from T_TORNEOS where id=".$id."");
 		$consulta->execute();
 	}
 	}

@@ -14,65 +14,66 @@
     <h2>Temporada 2023</h2>
     <?php
     require("../Negocio/jugadoresReglasNegocio.php");
+   require_once("../Negocio/partidosReglasNegocio.php");
    $jugadores = new JugadoresReglasNegocio();
+   $partidos = new PartidosReglasNegocio();
+   $id=$_GET['idTorneo'];
    $datosTorneos = $jugadores->obtenerDatosJugadores();
- echo "<div class='tabla'>";
+   $partidos->obtenerDatosListaPartido($id);
+    echo "<div class='tabla'>"; 
 
-     echo "<div class='columnas'>";
-     echo " <h3>Cuartos</h3>";
-        foreach($datosTorneos as $jugador){
-        echo "<div class='cuartos'>";
-            echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> <div class='jugadorCuarto'>".  $jugador->getNombreJugador()."</div></a>";
-}
-               echo "</div>";
-    echo "</div>";           
- echo "</div>";
-                ?>
-              <!--  <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
-                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
-                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
-                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
-                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
-                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
-                <a href=""> <div class="jugadorCuarto"> Prueba </div></a>
+        echo "<div class='columnas'>";
+        echo " <h3>Cuartos</h3>";
+            foreach($datosTorneos as $jugador){
+               var_dump($jugador->getId());
+                echo "<div class='cuartos'>";
+                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> <div class='jugadorCuarto'>".  $jugador->getIdJugador1()."</div></a>";
+                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> <div class='jugadorCuarto'>".  $jugador->getIdJugador2()."</div></a>";
+            }
+        echo "</div>";
 
-            </div>
-        </div>
-        <div class="columnas">
-            <h3>Semifinal</h3>
+            
+        echo "<div class='columnas'>";
+        echo "<h3>Semifinal</h3>";
 
-            <div class="semifinal">
-                <a href=""><div class="jugadorSemi">Prueba</div></a>
-                <a href=""><div class="jugadorSemi">Prueba</div></a>
-                <a href=""><div class="jugadorSemi">Prueba</div></a>
-                <a href=""><div class="jugadorSemi">Prueba</div></a>
-
+          echo "<div class='semifinal'>";
+          foreach($datosTorneos as $jugador){
+           
+                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> 
+                <div class='jugadorCuarto'>Semi</div></a>";
+                }
          
-            </div>
-        </div>
+            echo "</div>";
+        echo "</div>";
+
+        echo "<div class='columnas'>";
+        echo "<h3>Final</h3>";
+
+            echo  "<div class='final'>";
+            
+                foreach($datosTorneos as $jugador){
+                   
+                        echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> 
+                        <div class='jugadorCuarto'>Prueba</div></a>";
+                        }
+            echo "</div>";
+        echo "</div>";
 
 
-        <div class="columnas">
-            <h3>Final</h3>
+        echo "<div class='columnas'>";
+           echo "<h3>";
+            echo "<div class='titulo'>Campeón</div>";
+           echo "</h3>";
 
-            <div class="final">
-                <a href=""><div class="jugadorFinal">Prueba</div></a>
-                <a href=""><div class="jugadorFinal">Prueba</div></a>
-            </div>
-        </div>
+            echo "<a href=''>  <div class='campeon'>Prueba</div></a>";
+            echo "</div>";
+        echo "</div>";
+        
+        
+    echo "</div>";
 
-
-        <div class="columnas">
-            <h3>
-             <div class="titulo">Campeón</div>
-            </h3>
-
-             <a href="">  <div class="campeon">Prueba</div></a>
-        </div>
-
-
-    </div>-->
-    
+   
+    ?>
 </body>
 
 </html>
