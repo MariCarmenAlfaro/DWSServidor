@@ -1,7 +1,7 @@
 
 <?php
 
-require("AccesoDatos/usuarioAccesoDatos.php");
+require_once("AccesoDatos/usuarioAccesoDatos.php");
 require_once("Negocio/torneosReglasNegocio.php");
 
 function test_alta_usuario()

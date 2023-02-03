@@ -26,23 +26,29 @@ class JugadoresAccesoDatos
 		}
 		return $jugadores;
 	}
-	function obtenerJugadoresDePartidos(){
+	function obtenerJugadoresDePartidos($idTorneo, $tipoPartido){
 		$conexion = mysqli_connect('localhost', 'root', '1234');
 		if (mysqli_connect_errno()) {
 			echo "Error al conectar a MySQL: " . mysqli_connect_error();
 		}
 		mysqli_select_db($conexion, 'tenis_mesa');
-		$consulta = mysqli_prepare($conexion, "SELECT 
-		t_partidos\.idTorneo, t_partidos\.tipoPartido, jugador1\.nombreJugador, jugador2\.nombreJugador, t_partidos\.ganador
+		$query = "SELECT 
+		jugador1.nombreJugador as jugador1, jugador2.nombreJugador as jugador2,
+		ganador.nombreJugador as ganador
 	 FROM
 		 t_partidos 
 			 inner JOIN
-		 T_JUGADORES as jugador1 ON t_partidos\.idJugador1 = jugador1\.id
+		 T_JUGADORES as jugador1 ON t_partidos.idJugador1 = jugador1.id
 		 inner join 
-		  T_JUGADORES as jugador2 ON t_partidos\.idJugador2 = jugador2\.id
+		  T_JUGADORES as jugador2 ON t_partidos.idJugador2 = jugador2.id
+		  INNER JOIN
+    T_JUGADORES AS ganador ON t_partidos.ganador = ganador.id
 	 WHERE
-		 t_partidos\.idTorneo = 3
-			 AND t_partidos\.tipoPartido = 'Cuartos'; ;");
+		 t_partidos.idTorneo = ".$idTorneo."
+			 AND t_partidos.tipoPartido ='".$tipoPartido."'; ";
+
+
+		$consulta = mysqli_prepare($conexion, $query);
 		$consulta->execute();
 		$result = $consulta->get_result();
 
@@ -53,7 +59,7 @@ class JugadoresAccesoDatos
 		}
 		return $jugadores;
 	}
-	function obtenerDatosJugadorFicha($idTorneo,$tipoPartido)
+	function obtenerDatosJugadorFicha($idTorneo, $tipoPartido)
 	{
 
 		$conexion = mysqli_connect('localhost', 'root', '1234');

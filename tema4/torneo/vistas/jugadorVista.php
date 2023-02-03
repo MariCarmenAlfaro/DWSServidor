@@ -13,22 +13,35 @@
     <h1>Torneo tenis mesa</h1>
     <h2>Temporada 2023</h2>
     <?php
+    
     require("../Negocio/jugadoresReglasNegocio.php");
-   require_once("../Negocio/partidosReglasNegocio.php");
-   $jugadores = new JugadoresReglasNegocio();
-   $partidos = new PartidosReglasNegocio();
-   $id=$_GET['idTorneo'];
-   $datosTorneos = $jugadores->obtenerDatosJugadores();
-   $partidos->obtenerDatosListaPartido($id);
+  // require_once("../Negocio/partidosReglasNegocio.php");
+  $negocio = new JugadoresReglasNegocio();
+
+  $id=$_GET['idTorneo'];
+
+  //obtener partidos cuartos
+   $partidoCuartos = $negocio->obtenerJugadoresDePartidos($id, "Cuartos");
+
+   //Obtener partidos semifinal
+   $partidoSemiFinal = $negocio->obtenerJugadoresDePartidos($id, "Semifinal");
+
+   //Obtener partidos final
+   $partidoFinal = $negocio->obtenerJugadoresDePartidos($id, "Final");
+
+   
+
     echo "<div class='tabla'>"; 
 
         echo "<div class='columnas'>";
         echo " <h3>Cuartos</h3>";
-            foreach($datosTorneos as $jugador){
-               var_dump($jugador->getId());
+         
+            foreach($partidoCuartos as $jugador){
+               
                 echo "<div class='cuartos'>";
-                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> <div class='jugadorCuarto'>".  $jugador->getIdJugador1()."</div></a>";
-                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> <div class='jugadorCuarto'>".  $jugador->getIdJugador2()."</div></a>";
+                
+                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getJugador1()."'> <div class='jugadorCuarto'>".$jugador->getJugador1()."</div></a>";
+                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getJugador2()."'> <div class='jugadorCuarto'>".  $jugador->getJugador2()."</div></a>  </div>";
             }
         echo "</div>";
 
@@ -36,27 +49,35 @@
         echo "<div class='columnas'>";
         echo "<h3>Semifinal</h3>";
 
-          echo "<div class='semifinal'>";
-          foreach($datosTorneos as $jugador){
-           
-                echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> 
-                <div class='jugadorCuarto'>Semi</div></a>";
+         
+          foreach($partidoSemiFinal as $jugadorSemi){
+            echo "<div class='semifinal'>";
+                echo" <a href='jugadorVistaFicha.php?id=".$jugadorSemi->getJugador1()."'> 
+                <div class='jugadorCuarto'>".$jugadorSemi->getJugador1()."</div></a>";
+
+                echo" <a href='jugadorVistaFicha.php?id=".$jugadorSemi->getJugador2()."'> 
+                <div class='jugadorCuarto'>".$jugadorSemi->getJugador2()."</div></a> </div>";
+
                 }
          
-            echo "</div>";
+           
         echo "</div>";
 
         echo "<div class='columnas'>";
         echo "<h3>Final</h3>";
 
-            echo  "<div class='final'>";
             
-                foreach($datosTorneos as $jugador){
+                foreach($partidoFinal as $jugadorFinal){
+            echo  "<div class='final'>";
                    
-                        echo" <a href='jugadorVistaFicha.php?id=".$jugador->getId()."'> 
-                        <div class='jugadorCuarto'>Prueba</div></a>";
+                        echo" <a href='jugadorVistaFicha.php?id=".$jugadorFinal->getJugador1()."'> 
+                        <div class='jugadorCuarto'>".$jugadorFinal->getJugador1()."</div></a> ";
+
+                        echo" <a href='jugadorVistaFicha.php?id=".$jugadorFinal->getJugador1()."'> 
+                        <div class='jugadorCuarto'>".$jugadorFinal->getJugador2()."</div></a> </div>";
+
                         }
-            echo "</div>";
+            
         echo "</div>";
 
 
@@ -65,7 +86,7 @@
             echo "<div class='titulo'>Campeón</div>";
            echo "</h3>";
 
-            echo "<a href=''>  <div class='campeon'>Prueba</div></a>";
+            echo "<a href=''>  <div class='campeon'>".$jugadorFinal->getGanador()."</div></a>";
             echo "</div>";
         echo "</div>";
         
